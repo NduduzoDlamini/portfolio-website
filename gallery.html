@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gallery | Nduduzo Dlamini</title>
+
+  <meta
+    name="description"
+    content="Portfolio gallery of networking, data analytics, AI, infrastructure and professional projects by Nduduzo Dlamini."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     HOP TRACE
+========================================================= -->
+
+<div class="trace-line" aria-hidden="true">
+  <span class="trace-fill" id="traceFill"></span>
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav" id="top">
+
+  <div class="nav__inner">
+
+    <a href="index.html" class="nav__brand">
+
+      <span class="nav__brand-mark">
+        ND
+      </span>
+
+      <span class="nav__brand-status">
+        <i class="fa-solid fa-circle"></i>
+        online
+      </span>
+
+    </a>
+
+
+    <nav class="nav__links">
+
+      <a href="index.html#about">
+        About
+      </a>
+
+      <a href="index.html#work">
+        Work
+      </a>
+
+      <a href="gallery.html" class="is-active">
+        Gallery
+      </a>
+
+      <a href="index.html#qualifications">
+        Qualifications
+      </a>
+
+      <a href="index.html#credentials">
+        Credentials
+      </a>
+
+      <a href="index.html#contact" class="nav__cta">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <button
+      class="nav__toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+  <div class="container">
+
+
+    <!-- =====================================================
+         GALLERY HERO
+    ====================================================== -->
+
+    <section class="gallery-hero">
+
+      <p class="eyebrow">
+        <span class="hop">hop 04</span>
+        // gallery
+      </p>
+
+      <h1>
+        Photo Gallery
+      </h1>
+
+      <p>
+        A visual showcase of networking deployments,
+        data analytics projects, AI work, infrastructure
+        and professional milestones.
+      </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         FILTERS
+    ====================================================== -->
+
+    <div
+      class="gallery-filter"
+      aria-label="Gallery categories"
+    >
+
+      <button
+        class="active"
+        data-filter="all"
+      >
+        All
+      </button>
+
+      <button
+        data-filter="networking"
+      >
+        Networking
+      </button>
+
+      <button
+        data-filter="data"
+      >
+        Data Analytics
+      </button>
+
+      <button
+        data-filter="ai"
+      >
+        AI
+      </button>
+
+      <button
+        data-filter="field"
+      >
+        Field Work
+      </button>
+
+      <button
+        data-filter="events"
+      >
+        Events
+      </button>
+
+      <button
+        data-filter="qualifications"
+      >
+        Qualifications
+      </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         GALLERY GRID
+    ====================================================== -->
+
+    <section
+      class="gallery-grid"
+      id="galleryGrid"
+      aria-label="Portfolio gallery"
+    >
+
+
+      <!-- ===================================================
+           NETWORKING
+      ==================================================== -->
+
+      <article
+        class="gallery-card networking"
+        data-title="Rack Installation"
+        data-project="Network Infrastructure Support"
+        data-category="networking"
+        data-description="Network rack and switch installation as part of infrastructure support work."
+        data-source="Professional field work"
+        data-project-url="index.html#networking-projects"
+      >
+
+        <img
+          src="assets/gallery/server1.jpeg"
+          alt="Network rack installation"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            NETWORKING
+          </span>
+
+          <h3>
+            Rack Installation
+          </h3>
+
+          <p>
+            Network Infrastructure Support
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-expand"></i>
+            View Image
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- ===================================================
+           NETWORKING
+      ==================================================== -->
+
+      <article
+        class="gallery-card networking"
+        data-title="Access Point Deployment"
+        data-project="Wireless Network Deployment"
+        data-category="networking"
+        data-description="Wireless access point deployment and infrastructure testing."
+        data-source="Professional field work"
+        data-project-url="index.html#networking-projects"
+      >
+
+        <img
+          src="assets/gallery/AP.jpg"
+          alt="Wireless access point deployment"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            NETWORKING
+          </span>
+
+          <h3>
+            Access Point Deployment
+          </h3>
+
+          <p>
+            Wireless Infrastructure
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-expand"></i>
+            View Image
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- ===================================================
+           DATA ANALYTICS
+      ==================================================== -->
+
+      <article
+        class="gallery-card data"
+        data-title="Healthcare Analytics Dashboard"
+        data-project="Healthcare Analytics Dashboard"
+        data-category="data"
+        data-description="An example analytics dashboard developed using a publicly available dataset. The project demonstrates data cleaning, analysis, visualization and dashboard development without exposing confidential workplace data."
+        data-source="Kaggle — Public Dataset"
+        data-project-url="index.html#data-projects"
+      >
+
+        <img
+          src="assets/gallery/dashboard.png"
+          alt="Data analytics dashboard"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            DATA ANALYTICS
+          </span>
+
+          <h3>
+            Healthcare Analytics Dashboard
+          </h3>
+
+          <p>
+            Public Dataset • Kaggle
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-chart-line"></i>
+            View Project
+          </span>
+
+        </div>
+
+      </article>
+
+      <!-- ===================================================
+           NETWORKING
+      ==================================================== -->
+
+      <article
+        class="gallery-card networking"
+        data-title="Rack Installation"
+        data-project="Network Infrastructure Support"
+        data-category="networking"
+        data-description="Network rack and switch installation as part of infrastructure support work."
+        data-source="Professional field work"
+        data-project-url="index.html#networking-projects"
+      >
+
+        <img
+          src="assets/gallery/AP.jpg"
+          alt="Network rack installation"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            NETWORKING
+          </span>
+
+          <h3>
+            Rack Installation
+          </h3>
+
+          <p>
+            Network Infrastructure Support
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-expand"></i>
+            View Image
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- ===================================================
+           NETWORKING
+      ==================================================== -->
+
+      <article
+        class="gallery-card networking"
+        data-title="Access Point Deployment"
+        data-project="Wireless Network Deployment"
+        data-category="networking"
+        data-description="Wireless access point deployment and infrastructure testing."
+        data-source="Professional field work"
+        data-project-url="index.html#networking-projects"
+      >
+
+        <img
+          src="assets/gallery/AP.jpg"
+          alt="Wireless access point deployment"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            NETWORKING
+          </span>
+
+          <h3>
+            Access Point Deployment
+          </h3>
+
+          <p>
+            Wireless Infrastructure
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-expand"></i>
+            View Image
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- ===================================================
+           FIELD WORK
+      ==================================================== -->
+
+      <article
+        class="gallery-card field"
+        data-title="Network troubleshooting"
+        data-project="Ethernet installation"
+        data-category="field"
+        data-description="An example analytics dashboard developed using a publicly available dataset. The project demonstrates data cleaning, analysis, visualization and dashboard development without exposing confidential workplace data."
+        data-source="Kaggle — Public Dataset"
+        data-project-url="index.html#fieled-projects"
+      >
+
+        <img
+          src="assets/gallery/Install.JPG"
+          alt="Ethernet installation"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            Field Work
+          </span>
+
+          <h3>
+            Ethernet installation
+          </h3>
+
+          <p>
+            Ethernet CAT6
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-chart-line"></i>
+            View Project
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- ===================================================
+           EVENTS
+      ==================================================== -->
+
+      <article
+        class="gallery-card events"
+        data-title="FARSAR Support"
+        data-project="FARSAR Data Reporting Support"
+        data-category="events"
+        data-description="Supporting FARSAR during their quarterly data reporting activities."
+        data-source="Professional activity"
+        data-project-url="index.html#work"
+      >
+
+        <img
+          src="assets/gallery/Farsar.jpg"
+          alt="FARSAR data reporting support"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            EVENTS
+          </span>
+
+          <h3>
+            FARSAR Support
+          </h3>
+
+          <p>
+            Data Reporting
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-expand"></i>
+            View Image
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- ===================================================
+           QUALIFICATIONS
+      ==================================================== -->
+
+      <article
+        class="gallery-card events"
+        data-title="Honours Degree Milestone"
+        data-project="Academic Milestone"
+        data-category="qualifications"
+        data-description="Graduation milestone following completion of the Bachelor of Information and Communication Technology (Honours)."
+        data-source="Personal milestone"
+        data-project-url="index.html#qualifications"
+      >
+
+        <img
+          src="assets/gallery/Grad.jpg"
+          alt="Graduation milestone"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            QUALIFICATIONS
+          </span>
+
+          <h3>
+            Honours Degree Milestone
+          </h3>
+
+          <p>
+            Durban University of Technology
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-expand"></i>
+            View Image
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- ===================================================
+           EVENTS
+      ==================================================== -->
+
+      <article
+        class="gallery-card field"
+        data-title="Healthcare System Training"
+        data-project="Healthcare System Support"
+        data-category="field"
+        data-description="Healthcare system training and support activity."
+        data-source="Professional field work"
+        data-project-url="index.html#work"
+      >
+
+        <img
+          src="assets/gallery/training.jpg"
+          alt="Healthcare system training"
+          loading="lazy"
+        >
+
+        <div class="gallery-overlay">
+
+          <span class="gallery-category">
+            FIELD WORK
+          </span>
+
+          <h3>
+            Healthcare System Training
+          </h3>
+
+          <p>
+            System Support & Training
+          </p>
+
+          <span class="gallery-view">
+            <i class="fa-solid fa-expand"></i>
+            View Image
+          </span>
+
+        </div>
+
+      </article>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+  aria-hidden="true"
+>
+
+  <button
+    class="lightbox-close"
+    id="lightboxClose"
+    aria-label="Close image"
+  >
+    &times;
+  </button>
+
+
+  <button
+    class="lightbox-prev"
+    id="lightboxPrev"
+    aria-label="Previous image"
+  >
+    &#10094;
+  </button>
+
+
+  <button
+    class="lightbox-next"
+    id="lightboxNext"
+    aria-label="Next image"
+  >
+    &#10095;
+  </button>
+
+
+  <div class="lightbox-content">
+
+    <img
+      id="lightboxImage"
+      src=""
+      alt=""
+    >
+
+    <div
+      class="lightbox-thumbs"
+      id="lightboxThumbs"
+      aria-label="More photos from this project"
+    ></div>
+
+
+    <div class="lightbox-info">
+
+      <span
+        class="lightbox-category"
+        id="lightboxCategory"
+      ></span>
+
+      <h2 id="lightboxTitle"></h2>
+
+      <div class="lightbox-field">
+        <span class="meta-label">Activity</span>
+        <p id="lightboxDescription"></p>
+      </div>
+
+
+      <div class="lightbox-meta">
+
+        <div>
+          <span class="meta-label" id="lightboxProjectLabel">
+            Project
+          </span>
+
+          <span id="lightboxProject"></span>
+        </div>
+
+      </div>
+
+
+      <div class="lightbox-meta">
+
+        <div>
+          <span class="meta-label" id="lightboxTechnologiesLabel">
+            Technology
+          </span>
+
+          <span id="lightboxTechnologies"></span>
+        </div>
+
+      </div>
+
+
+      <div class="lightbox-meta">
+
+        <div>
+          <span class="meta-label">
+            Data / Image Source
+          </span>
+
+          <span id="lightboxSource"></span>
+        </div>
+
+      </div>
+
+
+      <a
+        href="#"
+        id="lightboxProjectLink"
+        class="btn btn--small lightbox-project-link"
+      >
+        <span id="lightboxProjectLinkText">View Project</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+  <p>
+    &copy;
+    <span id="year"></span>
+    Nduduzo Dlamini.
+    Built by hand.
+  </p>
+
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="js/script.js"></script>
+<script src="js/gallery.js"></script>
+
+</body>
+</html>

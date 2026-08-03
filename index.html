@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nduduzo Dlamini — Network Support &amp; Data Analyst</title>
+<meta name="description" content="Portfolio of Nduduzo Dlamini — network support technician and data analyst turning data into insights and improving network infrastructure." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ============ HOP TRACE (signature scroll element) ============ -->
+<div class="trace-line" aria-hidden="true"><span class="trace-fill" id="traceFill"></span></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand">
+      <span class="nav__brand-mark">ND</span>
+      <span class="nav__brand-status"><i class="fa-solid fa-circle"></i> online</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#">About</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#qualifications">Qualifications</a>
+      <a href="#credentials">Credentials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#contact" class="nav__cta">Contact</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="eyebrow"><span class="hop">hop 01</span> // about</p>
+        <h1 class="hero__title">Nduduzo Dlamini</h1>
+        <p class="hero__role">Network Engineer | Data Analyst  | System Administrator</p>
+        <p class="hero__bio">
+
+           I build, secure, and maintain reliable IT infrastructures, specializing 
+           in network engineering and systems administration. Blending my
+           technical background with data analysis, I transform complex system 
+           metrics into actionable insights. I currently volunteer with the <strong>Health 
+           Management Information System (HMIS)</strong>, optimizing critical healthcare tech 
+           infrastructure to drive real-world impact.
+
+          
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary">Contact me</a>
+          <a href="#work" class="btn btn--ghost">See my work</a>
+        </div>
+      </div>
+      <div class="hero__portrait">
+        <div class="portrait-frame">
+          <img src="assets/profile.jpg" alt="Portrait of Nduduzo Dlamini" onerror="this.parentElement.classList.add('portrait-frame--empty')" />
+          <span class="portrait-tag">IT · Data Analyst</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELECTED WORK ============ -->
+  <section class="work" id="work">
+    <p class="eyebrow"><span class="hop">hop 02</span> // selected work</p>
+    <h2 class="section-title">Selected work</h2>
+
+    <div class="work__grid">
+
+      <article class="work-card" id="data-projects">
+        <div class="work-card__visual work-card__visual--data">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div class="work-card__body">
+          <h3>Data Analysis Projects</h3>
+          <p>    Dashboards and reports that turn public datasets into decisions —
+                built with SQL, Python and Tableau.</p>
+          <a href="data-projects.html" class="btn btn--small">
+           View Data Projects
+           <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="work-card" id="networking-projects">
+        <div class="work-card__visual work-card__visual--net">
+          <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <div class="work-card__body">
+          <h3>Networking Projects</h3>
+          <p>Structured cabling, switch configuration and infrastructure support work, including HMIS fieldwork.</p>
+            <a href="gallery.html?category=networking" class="btn btn--small">
+              View Field Gallery
+      <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-card__visual work-card__visual--sec">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="work-card__body">
+          <h3>Cybersecurity</h3>
+          <p>Hands-on labs and coursework covering system hardening, secure config and threat fundamentals.</p>
+          <a href="#" class="btn btn--small">View <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+   <!-- ============ GALLERY ============ -->  
+  <section class="gallery-preview">
+    <p class="eyebrow"><span class="hop">hop 03</span> // gallery</p>
+    <h2 class="section-title">Photo Gallery</h2>
+    <div class="gallery-preview-grid">
+        <a href="gallery.html?category=networking" class="preview-card">
+  
+          <img src="assets/gallery/AP.jpg" alt="Network infrastructure">
+            <div class="preview-overlay">
+              <h3>
+                Network Infrastructure
+              </h3>
+              <p>
+                Field Deployments
+              </p>
+              <span>
+                View Networking Gallery
+              </span>
+            </div>
+          </a>
+
+        <a href="gallery.html?category=data" class="preview-card">
+        <img src="assets/gallery/dashboard.png" alt="Data analytics dashboard">
+          <div class="preview-overlay">
+            <h3>
+              Data Analytics
+            </h3>
+            <p>
+              Public Dataset Projects
+            </p>
+            <span>
+              View Data Gallery
+            </span>
+          </div>
+        </a>
+
+        <a href="gallery.html?category=qualifications" class="preview-card">
+        <img src="assets/gallery/Grad.jpg" alt="Professional milestone">
+
+          <div class="preview-overlay">
+            <h3>
+              Milestones
+            </h3>
+            <p>
+              Professional Journey
+            </p>
+            <span>
+              View Events Gallery
+            </span>
+          </div>
+        </a>
+
+    </div>
+
+</section>
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="experience" id="experience">
+    <p class="eyebrow"><span class="hop">hop 04</span> // experience</p>
+    <h2 class="section-title">Experience</h2>
+
+    <ol class="timeline">
+      <li class="timeline__item">
+        <span class="timeline__year">2025 – Present</span>
+        <div class="timeline__body">
+          <h3>Network Engineer</h3>
+          <p>Health Management Information System (HMIS)</p>
+          <ul class="timeline__responsibilities">
+            <li>Provided hardware, software, and network support for staff across multiple facilities.</li>
+            <li>Installed, configured, and maintained workstations, printers, routers, switches, and access points.</li>
+            <li>Monitored LAN/WAN connectivity and system performance, and managed user accounts, access permissions, and IT asset documentation.</li>
+            <li>Implemented file-sharing and backup systems for data availability and recovery, and maintained documentation of configurations and procedures.</li>
+            <li>Supported staff on digital health systems and collaborated across facilities to deliver timely IT infrastructure solutions.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="timeline__item">
+        <span class="timeline__year">2023 – 2024</span>
+        <div class="timeline__body">
+          <h3>Web Developer Intern</h3>
+          <p>Nomad Stays</p>
+        </div>
+      </li>
+      <li class="timeline__item">
+        <span class="timeline__year">Self-Directed</span>
+        <div class="timeline__body">
+          <h3>Data Analytics — Independent Projects</h3>
+          <p>Personal projects using SQL and Tableau</p>
+          <ul class="timeline__responsibilities">
+            <li>Built an interactive Tableau dashboard analyzing COVID-19 trends from public datasets.</li>
+            <li>Used SQL to explore and query a public bike-share usage dataset.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ QUALIFICATIONS ============ -->
+  <section class="qualifications" id="qualifications">
+    <p class="eyebrow"><span class="hop">hop 05</span> // qualifications</p>
+    <h2 class="section-title">Qualifications</h2>
+
+    <ol class="timeline">
+      <li class="timeline__item">
+        <span class="timeline__year">2022</span>
+        <div class="timeline__body">
+          <h3>Bachelor of Information and Communication Technology (Honours)</h3>
+          <p>Durban University of Technology</p>
+        </div>
+      </li>
+      <li class="timeline__item">
+        <span class="timeline__year">2021</span>
+        <div class="timeline__body">
+          <h3>Advanced Diploma in Information and Communication Technology <button type="button" class="timeline__honor" data-celebrate aria-label="Cum Laude — click to celebrate">CUM LAUDE</button></h3>
+          <p>Durban University of Technology</p>
+        </div>
+      </li>
+      <li class="timeline__item">
+        <span class="timeline__year">2017 – 2020</span>
+        <div class="timeline__body">
+          <h3>Diploma in Information and Communication Technology (Application Development)</h3>
+          <p>Durban University of Technology</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ CREDENTIALS ============ -->
+  <section class="credentials" id="credentials">
+    <p class="eyebrow"><span class="hop">hop 06</span> // credentials</p>
+    <h2 class="section-title">Certifications</h2>
+
+    <h3 class="credential-group__title">Networking &amp; Security</h3>
+    <ul class="credential-list">
+      <li>
+        <a class="credential" href="assets/certificates/ccna-level-1.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/ccna-level-1.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>Cisco Certified Network Associate (CCNA) – Level 1</h3>
+            <p>Cisco Networking Academy</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/ccna-level-2.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/ccna-level-2.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>Cisco Certified Network Associate (CCNA) – Level 2</h3>
+            <p>Cisco Networking Academy</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/ccna-level-3.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/ccna-level-3.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>Cisco Certified Network Associate (CCNA) – Level 3</h3>
+            <p>Cisco Networking Academy</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/introduction-to-cybersecurity.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/introduction-to-cybersecurity.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>Introduction to Cybersecurity</h3>
+            <p>Cisco Networking Academy</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/cisco-ethical-hacker.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/cisco-ethical-hacker.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>Cisco Ethical Hacker</h3>
+            <p>Cisco Networking Academy</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <span class="credential credential--pending" aria-disabled="true">
+          <i class="fa-solid fa-hourglass-half"></i>
+          <div>
+            <h3>ISC² Certified in Cybersecurity (CC)</h3>
+            <p><span class="credential__status">In Progress</span></p>
+          </div>
+        </span>
+      </li>
+    </ul>
+
+    <h3 class="credential-group__title">Data &amp; AI</h3>
+    <ul class="credential-list">
+      <li>
+        <a class="credential" href="assets/certificates/python-essentials-1.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/python-essentials-1.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>Python Essentials 1</h3>
+            <p>Cisco Networking Academy</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/data-analytics-essentials.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/data-analytics-essentials.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>Data Analytics Essentials</h3>
+            <p>Cisco Networking Academy</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/data-fundamentals-global-chapters.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/data-fundamentals-global-chapters.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>Data Fundamentals</h3>
+            <p>Global Chapters – Eswatini</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/ai-fundamentals-global-chapters.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/ai-fundamentals-global-chapters.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>AI Fundamentals</h3>
+            <p>Global Chapters – Eswatini</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/ai-fundamentals-ibm-skillsbuild.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/ai-fundamentals-ibm-skillsbuild.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>AI Fundamentals</h3>
+            <p>IBM SkillsBuild</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+      <li>
+        <a class="credential" href="assets/certificates/aws-ai-practitioner.pdf" target="_blank" rel="noopener">
+          <span class="credential__icon">
+            <img src="assets/badges/aws-ai-practitioner.png" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+            <i class="fa-solid fa-certificate" style="display:none;"></i>
+          </span>
+          <div>
+            <h3>AWS AI Practitioner</h3>
+            <p>AWS AI Practitioner Challenge, via Udacity</p>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square credential__open"></i>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ SOCIAL / LINKS ============ -->
+  <section class="social" id="social">
+    <p class="eyebrow"><span class="hop">hop 07</span> // find me</p>
+    <h2 class="section-title">Social accounts</h2>
+
+    <div class="social__grid">
+      <a href="#" class="social-link" target="_blank" rel="noopener">
+        <i class="fa-brands fa-linkedin"></i><span>LinkedIn</span>
+      </a>
+      <a href="#" class="social-link" target="_blank" rel="noopener">
+        <i class="fa-solid fa-award"></i><span>Credly</span>
+      </a>
+      <a href="#" class="social-link" target="_blank" rel="noopener">
+        <i class="fa-brands fa-github"></i><span>GitHub</span>
+      </a>
+      <a href="#" class="social-link" target="_blank" rel="noopener">
+        <i class="fa-solid fa-chart-simple"></i><span>Tableau</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <p class="eyebrow"><span class="hop">hop 08</span> // end of trace</p>
+    <h2 class="section-title">Let's talk</h2>
+    <p class="contact__lede">Open to network support, data analyst and IT roles — reach out any time.</p>
+    <a href="mailto:nduduzodlamini5@gmail.com" class="btn btn--primary btn--large">
+      <i class="fa-solid fa-paper-plane"></i> Email me
+    </a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Nduduzo Dlamini. Built by hand.</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/celebrate.js"></script>
+</body>
+</html>
