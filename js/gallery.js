@@ -347,6 +347,9 @@ const galleryItems = [
       "index.html#work"
   },
 
+  /* =======================================================
+     QALIFICATIONS
+     ======================================================= */
 
   {
     title: "Honours Degree Milestone",
@@ -368,7 +371,7 @@ const galleryItems = [
 
     source: "Personal milestone",
 
-    image: "assets/gallery/Grad.jpg",
+    image: "assets/gallery/Grad.JPG",
 
     alt: "Graduation milestone",
 
