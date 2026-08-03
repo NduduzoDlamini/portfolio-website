@@ -50,11 +50,11 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/server.jpeg",
+    image: "assets/gallery/server.webp",
 
     images: [
-      "assets/gallery/server.jpeg",
-      "assets/gallery/server1.jpeg"
+      "assets/gallery/server.webp",
+      "assets/gallery/server1.webp"
     ],
 
     alt: "Network server and access point setup",
@@ -101,7 +101,7 @@ const galleryItems = [
     dataSourceUrl:
       "https://www.kaggle.com/",
 
-    image: "assets/gallery/dashboard.png",
+    image: "assets/gallery/dashboard.webp",
 
     alt: "Data analytics dashboard",
 
@@ -134,7 +134,7 @@ const galleryItems = [
 
     source: "Public dataset / personal project",
 
-    image: "assets/gallery/ai.jpg",
+    image: "assets/gallery/ai.webp",
 
     alt: "AI project",
 
@@ -169,7 +169,7 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/training.jpg",
+    image: "assets/gallery/training.webp",
 
     alt: "Healthcare system training",
 
@@ -204,7 +204,7 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/AP.jpg",
+    image: "assets/gallery/AP.webp",
 
     alt: "Technical field support",
 
@@ -234,7 +234,7 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/Install.JPG",
+    image: "assets/gallery/Install.webp",
 
     alt: "Technical field support",
 
@@ -265,12 +265,12 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/pear.jpeg",
+    image: "assets/gallery/pear.webp",
 
     images: [
-      "assets/gallery/pear.jpeg",
-      "assets/gallery/pear1.jpeg",
-      "assets/gallery/pear2.jpeg"
+      "assets/gallery/pear.webp",
+      "assets/gallery/pear1.webp",
+      "assets/gallery/pear2.webp"
     ],
 
     alt: "Outdoor Wireless Infrastructure",
@@ -301,11 +301,11 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/box1.jpeg",
+    image: "assets/gallery/box1.webp",
 
     images: [
-      "assets/gallery/box1.jpeg",
-      "assets/gallery/box.jpeg"
+      "assets/gallery/box1.webp",
+      "assets/gallery/box.webp"
     ],
 
     alt: "Outdoor Wireless Infrastructure",
@@ -339,7 +339,7 @@ const galleryItems = [
 
     source: "Professional activity",
 
-    image: "assets/gallery/Farsar.jpg",
+    image: "assets/gallery/Farsar.webp",
 
     alt: "FARSAR data reporting support",
 
@@ -371,7 +371,7 @@ const galleryItems = [
 
     source: "Personal milestone",
 
-    image: "assets/gallery/Grad.JPG",
+    image: "assets/gallery/Grad.webp",
 
     alt: "Graduation milestone",
 
@@ -525,6 +525,17 @@ function createGalleryCard(item) {
 
   image.loading =
     "lazy";
+
+  image.decoding =
+    "async";
+
+  image.fetchPriority =
+    "low";
+
+  image.addEventListener("error", () => {
+    image.classList.add("image-load-error");
+    image.alt = `${item.title} image could not be loaded`;
+  });
 
 
   /* -------------------------------------------------------
@@ -1028,6 +1039,15 @@ function showLightboxItem(index) {
   lightboxImage.alt =
     item.alt || item.title;
 
+  lightboxImage.loading =
+    "eager";
+
+  lightboxImage.decoding =
+    "async";
+
+  lightboxImage.fetchPriority =
+    "high";
+
 
   /* -------------------------------------------------------
      THUMBNAILS (multi-image items only)
@@ -1060,6 +1080,12 @@ function showLightboxItem(index) {
         thumbImage.src = imageSrc;
 
         thumbImage.alt = "";
+
+        thumbImage.loading =
+          "lazy";
+
+        thumbImage.decoding =
+          "async";
 
         thumbButton.appendChild(thumbImage);
 
