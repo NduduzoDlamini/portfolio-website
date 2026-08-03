@@ -234,7 +234,7 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/Install.jpg",
+    image: "assets/gallery/Install.JPG",
 
     alt: "Technical field support",
 
