@@ -32,7 +32,6 @@ body {
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
@@ -750,6 +749,10 @@ a.credential:hover .credential__open {
     height: calc(100% - 64px);
     width: 220px;
     background: var(--surface);
+    backdrop-filter: none;
+    opacity: 1;
+    z-index: 150;
+    box-shadow: -12px 0 32px rgba(0, 0, 0, 0.5);
     border-left: 1px solid var(--border);
     flex-direction: column;
     align-items: flex-start;
@@ -759,6 +762,23 @@ a.credential:hover .credential__open {
   }
   .nav__links.is-open { right: 0; }
   .nav__toggle { display: block; }
+
+  /* Dim the rest of the page while the mobile menu is open, so the
+     panel reads clearly against whatever content is behind it. */
+  .nav__links::before {
+    content: "";
+    position: fixed;
+    inset: 64px 0 0 0;
+    background: rgba(6, 10, 18, 0.55);
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .nav__links.is-open::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 /* Visible keyboard focus */
