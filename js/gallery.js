@@ -63,6 +63,38 @@ const galleryItems = [
       "index.html#networking-projects"
   },
 
+  {
+    title: "Routing and Switch Management via PuTTY",
+
+    category: "networking",
+
+    project: "Network Configuration",
+
+    description:
+      "This project focuses on configuring core routing protocols and managing network infrastructure devices through a secure command-line interface. Using PuTTY to establish serial or SSH connections, the project involves authenticating through User Access Verification, navigating administrative privilege levels, and executing commands to define static routes, configure interfaces, and ensure secure device administration.",
+
+    type: "field",
+
+    technologies: [
+      "PuTTY",
+      "Cisco IOS",
+      "Routing Protocols",
+      "AAA Authentication"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/route.webp",
+
+    alt: "Technical field support",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
+
+    
 
   /* =======================================================
      DATA ANALYTICS
@@ -109,6 +141,7 @@ const galleryItems = [
       "data-projects.html"
   },
 
+  
 
   /* =======================================================
      AI
@@ -204,7 +237,14 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/AP.webp",
+    image: "assets/gallery/ac.webp",
+
+    images: [
+      "assets/gallery/ac.webp",
+      "assets/gallery/ac1.webp",
+      "assets/gallery/ac2.webp"
+      
+    ],
 
     alt: "Technical field support",
 
@@ -313,6 +353,145 @@ const galleryItems = [
     projectUrl:
       "index.html#networking-projects"
   },
+
+  {
+    title: "Rack relocation",
+
+    category: "field",
+
+    project: "Server Room Infrastructure Migration",
+
+    description:
+      "A physical infrastructure migration involving the relocation of an enterprise network rack to a new server room. The project required safely moving the enclosure and its core components—a rackmount server, router, and switch—while adhering to strict sterile environmental safety protocols.",
+
+    type: "technical",
+
+    technologies: [
+      "Network Server",
+      "Server Rack Enclosure",
+      "Cisco router"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/raq1.webp",
+
+    images: [
+      "assets/gallery/raq1.webp",
+      "assets/gallery/raq.webp"
+    ],
+
+    alt: "Network server and access point setup",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
+
+   {
+    title: "Network Infrastructure Deployment",
+
+    category: "field",
+
+    project: "Wall-Mount Network Cabinet Installation & Integration",
+
+    description:
+      "This project covers the physical installation and networking of a wall-mount equipment cabinet. It includes mounting the network enclosure, organizing structured patch cables, and integrating core hardware—including a MikroTik RouterBOARD ",
+
+    type: "technical",
+
+    technologies: [
+      "MikroTik RouterBOARD",
+      "Wall-Mount Network Cabinet",
+      "Structured Cabling"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/cab.webp",
+
+    images: [
+      "assets/gallery/cab.webp",
+      "assets/gallery/cab1.webp",
+      "assets/gallery/cab.webp",
+      "assets/gallery/cab3.webp"
+    ],
+
+    alt: "Network server and access point setup",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
+
+   {
+    title: "Network Maintenance & Optimization",
+
+    category: "field",
+
+    project: "Live Network Infrastructure Troubleshooting and Testing",
+
+    description:
+      "This project focuses on diagnostic testing and real-time troubleshooting of an overhead network node. It involves establishing a direct Ethernet connection to analyze live packet traffic, verify interface statuses, and identify connectivity bottlenecks to ensure maximum network uptime.",
+
+    type: "field",
+
+    technologies: [
+      "Ethernet CAT6",
+      "RJ45 Connectors",
+      "Wire Stripper & Cutters"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/crimp.webp",
+
+    alt: "Technical field support",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
+
+   {
+    title: "Healthcare Field IT Infrastructure Rollout",
+
+    category: "field",
+
+    project: "NERCHA Point-of-Care Workstation Deployment",
+
+    description:
+      "Field IT logistics drive the rollout of localized desktop computer workstations to active healthcare facilities for the National Emergency Response Council on HIV/AIDS (NERCHA). The process spans hardware assembly, secure cable routing, and device integration within clinical spaces to expand electronic medical system access.",
+
+    type: "field",
+
+    technologies: [
+      "EHR Data Node Setup",
+      "Field IT Logistics",
+      "Peripheral Integration",
+      "All-in-One / Desktop Workstations"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/deploy.webp",
+    images: [
+      "assets/gallery/deploy.webp",
+      "assets/gallery/deploy2.webp"
+    ],
+
+    alt: "Technical field support",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
+
+
 
   /* =======================================================
      EVENTS

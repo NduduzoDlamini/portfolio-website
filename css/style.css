@@ -276,7 +276,7 @@ main > section:last-child { border-bottom: none; }
 }
 .work-card__visual--data { background: linear-gradient(135deg, var(--accent), #2FBFA8); }
 .work-card__visual--net  { background: linear-gradient(135deg, #7FB3FF, #4C7FD9); }
-.work-card__visual--sec  { background: linear-gradient(135deg, var(--accent-2), #C98A2A); }
+.work-card__visual--dev  { background: linear-gradient(135deg, var(--accent-2), #C98A2A); }
 .work-card__body { padding: 1.5rem; }
 .work-card__body h3 {
   font-family: var(--font-display);
