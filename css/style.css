@@ -588,7 +588,6 @@ main > section:last-child { border-bottom: none; }
   .timeline__item { grid-template-columns: 1fr; gap: 0.4rem; padding-left: 1.5rem; }
   .timeline__item::before { left: 2px; }
   .timeline__year { text-align: left; }
-  .credential-list { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
@@ -780,6 +779,13 @@ a.credential:hover .credential__open {
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+/* Stack credential cards to a single column on narrow phones —
+   placed after the 760px block above so it correctly overrides
+   the 2-column rule there instead of being silently beaten by it. */
+@media (max-width: 560px) {
+  .credential-list { grid-template-columns: 1fr; }
 }
 
 /* Visible keyboard focus */
