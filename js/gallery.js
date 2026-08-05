@@ -479,10 +479,10 @@ const galleryItems = [
 
     source: "Professional field work",
 
-    image: "assets/gallery/deploy.webp",
+    image: "assets/gallery/Deploy.webp",
     images: [
-      "assets/gallery/deploy.webp",
-      "assets/gallery/deploy2.webp"
+      "assets/gallery/Deploy.webp",
+      "assets/gallery/Deploy2.webp"
     ],
 
     alt: "Technical field support",
