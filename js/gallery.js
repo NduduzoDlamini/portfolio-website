@@ -148,31 +148,73 @@ const galleryItems = [
      ======================================================= */
 
   {
-    title: "AI Project",
+    title: "Natural Language SQL Querying via MCP",
 
     category: "ai",
 
-    project: "AI Portfolio Project",
+    project: "Claude Desktop + SQL Server Integration",
 
     description:
-      "AI project demonstrating practical application of artificial intelligence concepts.",
+      "Built a working MCP (Model Context Protocol) integration connecting Claude Desktop to a local SQL Server Express instance, enabling natural language querying of relational databases without writing raw SQL.",
 
     type: "technical",
 
     technologies: [
-      "Artificial Intelligence"
+      "Model Context Protocol (MCP)",
+      "Claude Desktop",
+      "SQL Server Express",
+      "Python"
     ],
 
     date: "2026",
 
-    source: "Public dataset / personal project",
+    source: "Personal project",
 
     image: "assets/gallery/ai.webp",
+
+    video: "assets/gallery/mcp-demo.mp4",
 
     alt: "AI project",
 
     projectUrl:
       "index.html#work"
+  },
+
+
+  /* =======================================================
+     DEVELOPMENT
+     ======================================================= */
+
+  {
+    title: "Personal Portfolio Website",
+
+    category: "development",
+
+    project: "Full-Stack Portfolio Build",
+
+    description:
+      "Designed and built a personal portfolio website from scratch, including a dynamic, filterable gallery system with lightbox viewing, category filtering, and support for both image and video content.",
+
+    type: "technical",
+
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+
+    date: "2026",
+
+    source: "Personal project",
+
+    image: "assets/gallery/hmis.webp",
+
+    video: "assets/gallery/hmis.mp4",
+
+    alt: "Personal portfolio website",
+
+    projectUrl:
+      "index.html"
   },
 
 
@@ -580,6 +622,9 @@ const lightbox =
 const lightboxImage =
   document.getElementById("lightboxImage");
 
+const lightboxVideo =
+  document.getElementById("lightboxVideo");
+
 const lightboxTitle =
   document.getElementById("lightboxTitle");
 
@@ -690,31 +735,71 @@ function createGalleryCard(item) {
 
 
   /* -------------------------------------------------------
-     IMAGE
+     IMAGE OR VIDEO PREVIEW
   ------------------------------------------------------- */
 
-  const image =
-    document.createElement("img");
+  let image;
 
-  image.src =
-    item.image;
+  if (item.video) {
 
-  image.alt =
-    item.alt || item.title;
+    image =
+      document.createElement("video");
 
-  image.loading =
-    "lazy";
+    image.src =
+      item.video;
 
-  image.decoding =
-    "async";
+    if (item.image) {
 
-  image.fetchPriority =
-    "low";
+      image.poster =
+        item.image;
 
-  image.addEventListener("error", () => {
-    image.classList.add("image-load-error");
-    image.alt = `${item.title} image could not be loaded`;
-  });
+    }
+
+    image.muted = true;
+
+    image.loop = true;
+
+    image.playsInline = true;
+
+    image.preload = "metadata";
+
+    const playBadge =
+      document.createElement("span");
+
+    playBadge.className =
+      "gallery-card__play-badge";
+
+    playBadge.innerHTML =
+      `<i class="fa-solid fa-play"></i>`;
+
+    article.appendChild(playBadge);
+
+  } else {
+
+    image =
+      document.createElement("img");
+
+    image.src =
+      item.image;
+
+    image.alt =
+      item.alt || item.title;
+
+    image.loading =
+      "lazy";
+
+    image.decoding =
+      "async";
+
+    image.fetchPriority =
+      "low";
+
+    image.addEventListener("error", () => {
+      image.classList.add("image-load-error");
+      image.alt = `${item.title} image could not be loaded`;
+    });
+
+  }
 
 
   /* -------------------------------------------------------
@@ -852,6 +937,9 @@ function formatCategory(category) {
     ai:
       "AI",
 
+    development:
+      "DEVELOPMENT",
+
     field:
       "FIELD WORK",
 
@@ -889,6 +977,9 @@ function groupLabel(category) {
     ai:
       "AI",
 
+    development:
+      "Development",
+
     field:
       "Field Work",
 
@@ -924,6 +1015,7 @@ function renderGallery(category = "all") {
     "networking",
     "data",
     "ai",
+    "development",
     "field",
     "events",
     "qualifications"
@@ -1209,23 +1301,78 @@ function showLightboxItem(index) {
 
 
   /* -------------------------------------------------------
-     IMAGE
+     IMAGE OR VIDEO
   ------------------------------------------------------- */
 
-  lightboxImage.src =
-    item.image;
+  if (lightboxVideo) {
 
-  lightboxImage.alt =
-    item.alt || item.title;
+    lightboxVideo.pause();
 
-  lightboxImage.loading =
-    "eager";
+    lightboxVideo.removeAttribute("src");
 
-  lightboxImage.decoding =
-    "async";
+    lightboxVideo.load();
 
-  lightboxImage.fetchPriority =
-    "high";
+  }
+
+  if (item.video) {
+
+    lightboxImage.style.display = "none";
+
+    if (lightboxVideo) {
+
+      lightboxVideo.style.display = "block";
+
+      lightboxVideo.src = item.video;
+
+      if (item.image) {
+
+        lightboxVideo.poster = item.image;
+
+      }
+
+      const playPromise =
+        lightboxVideo.play();
+
+      if (playPromise) {
+
+        playPromise.catch(() => {
+
+          lightboxVideo.muted = true;
+
+          lightboxVideo.play().catch(() => {});
+
+        });
+
+      }
+
+    }
+
+  } else {
+
+    lightboxImage.style.display = "";
+
+    if (lightboxVideo) {
+
+      lightboxVideo.style.display = "none";
+
+    }
+
+    lightboxImage.src =
+      item.image;
+
+    lightboxImage.alt =
+      item.alt || item.title;
+
+    lightboxImage.loading =
+      "eager";
+
+    lightboxImage.decoding =
+      "async";
+
+    lightboxImage.fetchPriority =
+      "high";
+
+  }
 
 
   /* -------------------------------------------------------
@@ -1455,6 +1602,12 @@ function showLightboxItem(index) {
 
 function closeLightbox() {
 
+  if (lightboxVideo) {
+
+    lightboxVideo.pause();
+
+  }
+
   lightbox.classList.remove(
     "active"
   );
@@ -1652,6 +1805,7 @@ const validCategories = [
   "networking",
   "data",
   "ai",
+  "development",
   "field",
   "events",
   "qualifications"
