@@ -1,25 +1,3 @@
-/* =========================================================
-   PORTFOLIO GALLERY
-   Option B — Gallery data managed in JavaScript
-   ========================================================= */
-
-
-/* =========================================================
-   GALLERY DATA
-   =========================================================
-   
-   To add a new gallery item:
-   1. Copy one of the objects below.
-   2. Change the information.
-   3. Add the correct image path.
-   
-   Categories:
-   networking
-   data
-   ai
-   field
-   events
-========================================================= */
 
 const galleryItems = [
 
@@ -54,7 +32,8 @@ const galleryItems = [
 
     images: [
       "assets/gallery/server.webp",
-      "assets/gallery/server1.webp"
+      "assets/gallery/server1.webp",
+      "assets/gallery/server2.webp"
     ],
 
     alt: "Network server and access point setup",
@@ -93,7 +72,37 @@ const galleryItems = [
     projectUrl:
       "index.html#networking-projects"
   },
+  
+ {
+    title: "Local Area Network Segmentation via PuTTY",
 
+    category: "networking",
+
+    project: "Managed Switch Layer 2 VLAN Configuration",
+
+    description:
+      "The configuration process involves mapping out logical subnets, assigning specific switch ports to their designated broadcast domains, and establishing virtual local area networks (VLANs) via the command-line interface to reduce network congestion and protect sensitive data.",
+
+    type: "field",
+
+    technologies: [
+      "PuTTY",
+      "Managed Network Switch",
+      "Virtual LANs (802.1Q)",
+      "Command Line Interface (CLI)"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/vlan.webp",
+
+    alt: "Technical field support",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
     
 
   /* =======================================================
@@ -133,7 +142,7 @@ const galleryItems = [
     dataSourceUrl:
       "https://www.kaggle.com/",
 
-    image: "assets/gallery/dashboard.webp",
+    image: "assets/gallery/sql.jpg",
 
     alt: "Data analytics dashboard",
 
@@ -207,16 +216,55 @@ const galleryItems = [
 
     source: "Personal project",
 
-    image: "assets/gallery/hmis.webp",
+    image: "assets/gallery/web.webp",
 
-    video: "assets/gallery/hmis.mp4",
+    //video: "assets/gallery/hmis.mp4",
 
     alt: "Personal portfolio website",
 
     projectUrl:
-      "index.html"
+      "https://github.com/NduduzoDlamini/portfolio-website"
   },
 
+  {
+    title: "Automated After-Hours Workstation Shutdown System",
+
+    category: "development",
+
+    project: "HMIS After-Hours Idle Shutdown & Reporting System",
+
+    description:
+      "An automated Windows workstation management solution that detects after-hours inactivity, provides users with a branded shutdown countdown, safely powers down idle computers, generates detailed system logs, and records shutdown/cancellation events for centralized reporting.",
+
+    type: "technical",
+
+    technologies: [
+      "PowerShell",
+      "Windows Task Scheduler",
+      "Batch Scripting",
+      "SMB",
+      "CSV"
+    ],
+
+    date: "2026",
+
+    source: "Personal project",
+
+    image: "assets/gallery/hmis.webp",
+
+    video: "assets/gallery/hmis.mp4",
+    
+    images: ["assets/gallery/hmis.webp",
+      "assets/gallery/log.webp"
+
+    ],
+
+
+    alt: "Personal portfolio website",
+
+    projectUrl:
+      "https://github.com/NduduzoDlamini/Automated_After-Hours_Workstation_Shutdown_System"
+  },
 
   /* =======================================================
      EVENTS
@@ -391,6 +439,46 @@ const galleryItems = [
     ],
 
     alt: "Outdoor Wireless Infrastructure",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
+
+   {
+    title: "Outdoor Wireless Network Extension",
+
+    category: "field",
+
+    project: "Mankayane Hospital Pharmacy Access Point Installation",
+
+    description:
+      " Outdoor network infrastructure installation at the Mankayane Hospital pharmacy building expands localized wireless coverage.The implementation leverages physical structural shelter to shield the enterprise network node from direct rain, extreme sunlight, and wind-driven moisture, delivering extended outdoor signal range without risking environmental equipment decay.",
+
+    type: "field",
+
+    technologies: [
+      "Ubiquiti UniFi Access Point",
+      "UniFi Controller",
+      "Power over Ethernet",
+      "WPA3 Security"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/m1.webp",
+
+    images: [
+      "assets/gallery/m1.webp",
+      "assets/gallery/m2.webp",
+      "assets/gallery/m5.webp",
+      "assets/gallery/m.webp",
+      "assets/gallery/m3.webp"
+      
+    ],
+
+    alt: "Technical field support",
 
     projectUrl:
       "index.html#networking-projects"
@@ -640,6 +728,9 @@ const lightboxProjectLabel =
 const lightboxProjectLinkText =
   document.getElementById("lightboxProjectLinkText");
 
+const lightboxProjectLinkIcon =
+  document.getElementById("lightboxProjectLinkIcon");
+
 const lightboxSource =
   document.getElementById("lightboxSource");
 
@@ -657,6 +748,9 @@ const lightboxProjectLink =
 
 const lightboxThumbs =
   document.getElementById("lightboxThumbs");
+
+const lightboxFullscreenBtn =
+  document.getElementById("lightboxFullscreenBtn");
 
 const closeButton =
   document.getElementById("lightboxClose");
@@ -1318,6 +1412,10 @@ function showLightboxItem(index) {
 
     lightboxImage.style.display = "none";
 
+    if (lightboxFullscreenBtn) {
+      lightboxFullscreenBtn.classList.remove("is-visible");
+    }
+
     if (lightboxVideo) {
 
       lightboxVideo.style.display = "block";
@@ -1350,6 +1448,10 @@ function showLightboxItem(index) {
   } else {
 
     lightboxImage.style.display = "";
+
+    if (lightboxFullscreenBtn) {
+      lightboxFullscreenBtn.classList.add("is-visible");
+    }
 
     if (lightboxVideo) {
 
@@ -1387,6 +1489,12 @@ function showLightboxItem(index) {
 
       item.images.forEach((imageSrc, imageIndex) => {
 
+        // When the item has a video, treat the first thumbnail as
+        // "watch the video" rather than a redundant static photo —
+        // its src is usually just the video's own poster image.
+        const isVideoThumb =
+          Boolean(item.video) && imageIndex === 0;
+
         const thumbButton =
           document.createElement("button");
 
@@ -1397,7 +1505,9 @@ function showLightboxItem(index) {
 
         thumbButton.setAttribute(
           "aria-label",
-          `View photo ${imageIndex + 1} of ${item.images.length}`
+          isVideoThumb
+            ? "Watch video"
+            : `View photo ${imageIndex + 1} of ${item.images.length}`
         );
 
         const thumbImage =
@@ -1417,7 +1527,44 @@ function showLightboxItem(index) {
 
         thumbButton.addEventListener("click", () => {
 
-          lightboxImage.src = imageSrc;
+          if (isVideoThumb && lightboxVideo) {
+
+            // Switch back to the video.
+            lightboxImage.style.display = "none";
+            lightboxVideo.style.display = "block";
+
+            if (lightboxFullscreenBtn) {
+              lightboxFullscreenBtn.classList.remove("is-visible");
+            }
+
+            lightboxVideo.src = item.video;
+            lightboxVideo.currentTime = 0;
+
+            const playPromise = lightboxVideo.play();
+            if (playPromise) {
+              playPromise.catch(() => {
+                lightboxVideo.muted = true;
+                lightboxVideo.play().catch(() => {});
+              });
+            }
+
+          } else {
+
+            // Switch to a static photo.
+            if (lightboxVideo) {
+              lightboxVideo.pause();
+              lightboxVideo.style.display = "none";
+            }
+
+            if (lightboxFullscreenBtn) {
+              lightboxFullscreenBtn.classList.add("is-visible");
+            }
+
+            lightboxImage.style.display = "";
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = item.alt || item.title;
+
+          }
 
           lightboxThumbs
             .querySelectorAll("button")
@@ -1555,7 +1702,7 @@ function showLightboxItem(index) {
   ------------------------------------------------------- */
 
   if (
-    (item.category === "data" || item.category === "qualifications") &&
+    (item.category === "data" || item.category === "qualifications" || item.category === "development") &&
     item.projectUrl
   ) {
 
@@ -1579,10 +1726,23 @@ function showLightboxItem(index) {
 
     if (lightboxProjectLinkText) {
 
+      let linkText = "View Project";
+
+      if (item.category === "qualifications") {
+        linkText = "View Qualifications";
+      } else if (item.category === "development") {
+        linkText = "View on GitHub";
+      }
+
       lightboxProjectLinkText.textContent =
-        item.category === "qualifications"
-          ? "View Qualifications"
-          : "View Project";
+        linkText;
+
+      if (lightboxProjectLinkIcon) {
+        lightboxProjectLinkIcon.className =
+          item.category === "development"
+            ? "fa-brands fa-github"
+            : "fa-solid fa-arrow-right";
+      }
 
     }
 
@@ -1605,6 +1765,25 @@ function closeLightbox() {
   if (lightboxVideo) {
 
     lightboxVideo.pause();
+
+  }
+
+  const isFullscreen =
+    document.fullscreenElement ||
+    document.webkitFullscreenElement;
+
+  if (isFullscreen) {
+
+    const exitFullscreen =
+      document.exitFullscreen ||
+      document.webkitExitFullscreen;
+
+    if (exitFullscreen) {
+      const result = exitFullscreen.call(document);
+      if (result && typeof result.catch === "function") {
+        result.catch(() => {});
+      }
+    }
 
   }
 
@@ -1699,6 +1878,72 @@ if (closeButton) {
     "click",
     closeLightbox
   );
+
+}
+
+
+if (lightboxFullscreenBtn && lightbox) {
+
+  lightboxFullscreenBtn.addEventListener("click", () => {
+
+    const isFullscreen =
+      document.fullscreenElement ||
+      document.webkitFullscreenElement;
+
+    if (isFullscreen) {
+
+      const exitFullscreen =
+        document.exitFullscreen ||
+        document.webkitExitFullscreen;
+
+      if (exitFullscreen) {
+        const result = exitFullscreen.call(document);
+        if (result && typeof result.catch === "function") {
+          result.catch(() => {});
+        }
+      }
+
+    } else {
+
+      const requestFullscreen =
+        lightbox.requestFullscreen ||
+        lightbox.webkitRequestFullscreen ||
+        lightbox.msRequestFullscreen;
+
+      if (requestFullscreen) {
+        const result = requestFullscreen.call(lightbox);
+        if (result && typeof result.catch === "function") {
+          result.catch(() => {});
+        }
+      }
+
+    }
+
+  });
+
+  const updateFullscreenIcon = () => {
+
+    const isFullscreen =
+      document.fullscreenElement ||
+      document.webkitFullscreenElement;
+
+    const icon =
+      lightboxFullscreenBtn.querySelector("i");
+
+    if (icon) {
+      icon.className =
+        isFullscreen ? "fa-solid fa-compress" : "fa-solid fa-expand";
+    }
+
+    lightboxFullscreenBtn.setAttribute(
+      "aria-label",
+      isFullscreen ? "Exit full screen" : "View full picture"
+    );
+
+  };
+
+  document.addEventListener("fullscreenchange", updateFullscreenIcon);
+  document.addEventListener("webkitfullscreenchange", updateFullscreenIcon);
 
 }
 

@@ -25,7 +25,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   >
 
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=12">
 </head>
 
 <body>
@@ -71,8 +71,8 @@
         Work
       </a>
 
-      <a href="gallery.html" class="is-active">
-        Gallery
+      <a href="index.html#experience">
+        Experience
       </a>
 
       <a href="index.html#qualifications">
@@ -81,6 +81,10 @@
 
       <a href="index.html#credentials">
         Credentials
+      </a>
+
+      <a href="gallery.html" class="is-active">
+        Gallery
       </a>
 
       <a href="index.html#contact" class="nav__cta">
@@ -651,25 +655,37 @@
 
   <div class="lightbox-content">
 
-    <img
-      id="lightboxImage"
-      src=""
-      alt=""
-    >
+    <div class="lightbox-media">
 
-    <video
-      id="lightboxVideo"
-      controls
-      playsinline
-      style="display:none;"
-    ></video>
+      <button
+        type="button"
+        class="lightbox-fullscreen-btn"
+        id="lightboxFullscreenBtn"
+        aria-label="View full picture"
+      >
+        <i class="fa-solid fa-expand"></i>
+      </button>
 
-    <div
-      class="lightbox-thumbs"
-      id="lightboxThumbs"
-      aria-label="More photos from this project"
-    ></div>
+      <img
+        id="lightboxImage"
+        src=""
+        alt=""
+      >
 
+      <video
+        id="lightboxVideo"
+        controls
+        playsinline
+        style="display:none;"
+      ></video>
+
+      <div
+        class="lightbox-thumbs"
+        id="lightboxThumbs"
+        aria-label="More photos from this project"
+      ></div>
+
+    </div>
 
     <div class="lightbox-info">
 
