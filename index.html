@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css?v=17" />
+<link rel="stylesheet" href="css/style.css?v=16" />
 </head>
 <body>
 
@@ -495,28 +495,6 @@
 
     credentialLinks.forEach(function (link) {
       link.addEventListener("click", function (event) {
-
-        var isMobile = window.matchMedia("(max-width: 650px)").matches;
-
-        if (isMobile) {
-
-          // Route through a small dedicated full-page viewer instead
-          // of the raw PDF (no back-to-site link) or the custom modal
-          // (cramped, and mobile Safari renders embedded PDFs zoomed
-          // in at that size).
-          event.preventDefault();
-
-          var href = link.getAttribute("href");
-          var titleEl = link.querySelector("h3");
-          var title = titleEl ? titleEl.textContent.trim() : "";
-
-          window.location.href =
-            "certificate.html?file=" + encodeURIComponent(href) +
-            "&title=" + encodeURIComponent(title);
-
-          return;
-        }
-
         event.preventDefault();
         openPdfModal(link.getAttribute("href"));
       });
