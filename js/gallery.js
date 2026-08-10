@@ -95,7 +95,36 @@ const galleryItems = [
       "index.html#networking-projects"
   },
 
-    
+    {
+    title: "Local Area Network Segmentation via PuTTY",
+
+    category: "networking",
+
+    project: "Managed Switch Layer 2 VLAN Configuration",
+
+    description:
+      "The configuration process involves mapping out logical subnets, assigning specific switch ports to their designated broadcast domains, and establishing virtual local area networks (VLANs) via the command-line interface to reduce network congestion and protect sensitive data.",
+
+    type: "field",
+
+    technologies: [
+      "PuTTY",
+      "Virtual LANs (802.1Q)",
+      "Command Line Interface (CLI)"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/vlan.webp",
+
+    alt: "Technical field support",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
+
 
   /* =======================================================
      DATA ANALYTICS

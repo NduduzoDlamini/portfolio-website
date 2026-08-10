@@ -1362,6 +1362,10 @@ a:focus-visible, button:focus-visible {
   padding: 20px;
 }
 
+.pdf-modal .lightbox-close {
+  z-index: 10;
+}
+
 .pdf-modal.active {
   display: flex;
 }
@@ -1375,9 +1379,28 @@ a:focus-visible, button:focus-visible {
   background: #fff;
 }
 
+.pdf-modal__fallback {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 650px) {
   .pdf-modal {
     padding: 10px;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 54px);
+  }
+
+  .pdf-modal .lightbox-close {
+    top: calc(env(safe-area-inset-top, 0px) + 12px);
+    right: 15px;
   }
 }
 
@@ -1851,7 +1874,7 @@ font-size:2.2rem;
 }
 
 .data-project--placeholder{
-    opacity: 0.55;
+    opacity: 1;
     border-style: dashed;
 }
 

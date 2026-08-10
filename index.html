@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<link rel="stylesheet" href="css/style.css?v=15" />
+<link rel="stylesheet" href="css/style.css?v=16" />
 </head>
 <body>
 
@@ -115,7 +115,7 @@
         <div class="work-card__body">
           <h3>Development</h3>
           <p>Coding projects and hands-on builds — more details coming soon.</p>
-          <a href="#" class="btn btn--small">View <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="gallery.html?category=development" class="btn btn--small">View <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </article>
 
@@ -129,7 +129,7 @@
     <div class="gallery-preview-grid">
         <a href="gallery.html?category=networking" class="preview-card">
   
-          <img src="assets/gallery/AP.webp" alt="Network infrastructure">
+          <img src="assets/gallery/vlan.webp" alt="Network infrastructure">
             <div class="preview-overlay">
               <h3>
                 Network Infrastructure
@@ -186,14 +186,20 @@
       <li class="timeline__item">
         <span class="timeline__year">2025 – Present</span>
         <div class="timeline__body">
-          <h3>Network Engineer</h3>
+          <h3>Health Data & Systems Support</h3>
           <p>Health Management Information System (HMIS)</p>
           <ul class="timeline__responsibilities">
-            <li>Provided hardware, software, and network support for staff across multiple facilities.</li>
+            <li>Provided first-line (Tier-1) technical support, diagnosing and resolving hardware, software, and system-related issues for end-users.</li>
             <li>Installed, configured, and maintained workstations, printers, routers, switches, and access points.</li>
             <li>Monitored LAN/WAN connectivity and system performance, and managed user accounts, access permissions, and IT asset documentation.</li>
             <li>Implemented file-sharing and backup systems for data availability and recovery, and maintained documentation of configurations and procedures.</li>
             <li>Supported staff on digital health systems and collaborated across facilities to deliver timely IT infrastructure solutions.</li>
+            <li>Diagnosed and resolved structural SQL Server errors and corrected underlying clinical business logic (PrEP eligibility, ART status, stop reasons, seroconversion tracking).</li>
+            <li>mproved report runtime by eliminating redundant query branches, adding targeted indexes on staging tables, and replacing a row-by-row scalar function with a set-based equivalent.</li>
+            <li>Collected, cleaned, and validated data from electronic health records and other health systems to ensure accuracy, consistency, and completeness.</li>
+            <li>Built dashboards, charts, and reports in Excel and Power BI to present findings to healthcare providers and administrators; tracked public-health trends including disease outbreaks, vaccination rates, and population health metrics.</li>
+            <li>Used DHIS2 dashboards to review and validate regional health data as part of routine data quality checks.</li>
+            <li>Designed, debugged, and optimized a multi-stage T-SQL reporting pipeline (15+ staged tables) for a national PrEP (HIV Pre-Exposure Prophylaxis) program, integrating enrollment, follow-up, ART, medication, adverse-event, and population-classification data into a single clinical report.</li>
           </ul>
         </div>
       </li>
@@ -455,6 +461,9 @@
 <div class="pdf-modal" id="pdfModal" aria-hidden="true">
   <button class="lightbox-close" id="pdfModalClose" aria-label="Close certificate">&times;</button>
   <iframe class="pdf-modal__frame" id="pdfModalFrame" src="" title="Certificate PDF"></iframe>
+  <a class="pdf-modal__fallback" id="pdfModalFallback" href="" target="_blank" rel="noopener">
+    Trouble viewing? Open PDF directly
+  </a>
 </div>
 
 <script src="js/script.js"></script>
@@ -464,10 +473,14 @@
     var pdfModal = document.getElementById("pdfModal");
     var pdfModalFrame = document.getElementById("pdfModalFrame");
     var pdfModalClose = document.getElementById("pdfModalClose");
+    var pdfModalFallback = document.getElementById("pdfModalFallback");
     var credentialLinks = document.querySelectorAll(".credential[href$='.pdf']");
 
     function openPdfModal(href) {
-      pdfModalFrame.src = href;
+      pdfModalFrame.src = href + "#view=FitH";
+      if (pdfModalFallback) {
+        pdfModalFallback.href = href;
+      }
       pdfModal.classList.add("active");
       pdfModal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
