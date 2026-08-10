@@ -1,3 +1,25 @@
+/* =========================================================
+   PORTFOLIO GALLERY
+   Option B — Gallery data managed in JavaScript
+   ========================================================= */
+
+
+/* =========================================================
+   GALLERY DATA
+   =========================================================
+   
+   To add a new gallery item:
+   1. Copy one of the objects below.
+   2. Change the information.
+   3. Add the correct image path.
+   
+   Categories:
+   networking
+   data
+   ai
+   field
+   events
+========================================================= */
 
 const galleryItems = [
 
@@ -72,37 +94,7 @@ const galleryItems = [
     projectUrl:
       "index.html#networking-projects"
   },
-  
- {
-    title: "Local Area Network Segmentation via PuTTY",
 
-    category: "networking",
-
-    project: "Managed Switch Layer 2 VLAN Configuration",
-
-    description:
-      "The configuration process involves mapping out logical subnets, assigning specific switch ports to their designated broadcast domains, and establishing virtual local area networks (VLANs) via the command-line interface to reduce network congestion and protect sensitive data.",
-
-    type: "field",
-
-    technologies: [
-      "PuTTY",
-      "Managed Network Switch",
-      "Virtual LANs (802.1Q)",
-      "Command Line Interface (CLI)"
-    ],
-
-    date: "2026",
-
-    source: "Professional field work",
-
-    image: "assets/gallery/vlan.webp",
-
-    alt: "Technical field support",
-
-    projectUrl:
-      "index.html#networking-projects"
-  },
     
 
   /* =======================================================
@@ -142,7 +134,7 @@ const galleryItems = [
     dataSourceUrl:
       "https://www.kaggle.com/",
 
-    image: "assets/gallery/sql.jpg",
+    image: "assets/gallery/dashboard.webp",
 
     alt: "Data analytics dashboard",
 
@@ -1791,6 +1783,10 @@ function closeLightbox() {
     "active"
   );
 
+  lightbox.classList.remove(
+    "is-photo-fullscreen"
+  );
+
 
   lightbox.setAttribute(
     "aria-hidden",
@@ -1884,26 +1880,40 @@ if (closeButton) {
 
 if (lightboxFullscreenBtn && lightbox) {
 
+  const updateFullscreenUI = (isPhotoFullscreen) => {
+
+    const icon =
+      lightboxFullscreenBtn.querySelector("i");
+
+    if (icon) {
+      icon.className =
+        isPhotoFullscreen ? "fa-solid fa-compress" : "fa-solid fa-expand";
+    }
+
+    lightboxFullscreenBtn.setAttribute(
+      "aria-label",
+      isPhotoFullscreen ? "Exit full screen" : "View full picture"
+    );
+
+  };
+
   lightboxFullscreenBtn.addEventListener("click", () => {
 
-    const isFullscreen =
-      document.fullscreenElement ||
-      document.webkitFullscreenElement;
+    const enteringPhotoFullscreen =
+      !lightbox.classList.contains("is-photo-fullscreen");
 
-    if (isFullscreen) {
+    lightbox.classList.toggle(
+      "is-photo-fullscreen",
+      enteringPhotoFullscreen
+    );
 
-      const exitFullscreen =
-        document.exitFullscreen ||
-        document.webkitExitFullscreen;
+    updateFullscreenUI(enteringPhotoFullscreen);
 
-      if (exitFullscreen) {
-        const result = exitFullscreen.call(document);
-        if (result && typeof result.catch === "function") {
-          result.catch(() => {});
-        }
-      }
-
-    } else {
+    // Best-effort real OS-level fullscreen on top of the layout
+    // change above — the layout itself no longer depends on this
+    // succeeding, since some mobile browsers don't reliably support
+    // fullscreening a plain element (only <video> in some cases).
+    if (enteringPhotoFullscreen) {
 
       const requestFullscreen =
         lightbox.requestFullscreen ||
@@ -1917,33 +1927,49 @@ if (lightboxFullscreenBtn && lightbox) {
         }
       }
 
+    } else {
+
+      const isNativeFullscreen =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement;
+
+      if (isNativeFullscreen) {
+
+        const exitFullscreen =
+          document.exitFullscreen ||
+          document.webkitExitFullscreen;
+
+        if (exitFullscreen) {
+          const result = exitFullscreen.call(document);
+          if (result && typeof result.catch === "function") {
+            result.catch(() => {});
+          }
+        }
+
+      }
+
     }
 
   });
 
-  const updateFullscreenIcon = () => {
+  // Keep things in sync if the user exits native fullscreen another
+  // way (pressing Esc, swiping down, etc.) on browsers where the
+  // native API did engage.
+  const handleNativeFullscreenChange = () => {
 
-    const isFullscreen =
+    const isNativeFullscreen =
       document.fullscreenElement ||
       document.webkitFullscreenElement;
 
-    const icon =
-      lightboxFullscreenBtn.querySelector("i");
-
-    if (icon) {
-      icon.className =
-        isFullscreen ? "fa-solid fa-compress" : "fa-solid fa-expand";
+    if (!isNativeFullscreen && lightbox.classList.contains("is-photo-fullscreen")) {
+      lightbox.classList.remove("is-photo-fullscreen");
+      updateFullscreenUI(false);
     }
-
-    lightboxFullscreenBtn.setAttribute(
-      "aria-label",
-      isFullscreen ? "Exit full screen" : "View full picture"
-    );
 
   };
 
-  document.addEventListener("fullscreenchange", updateFullscreenIcon);
-  document.addEventListener("webkitfullscreenchange", updateFullscreenIcon);
+  document.addEventListener("fullscreenchange", handleNativeFullscreenChange);
+  document.addEventListener("webkitfullscreenchange", handleNativeFullscreenChange);
 
 }
 
