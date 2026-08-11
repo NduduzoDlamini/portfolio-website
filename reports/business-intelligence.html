@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Business Intelligence &amp; Data Analytics Report | Nduduzo Dlamini</title>
+
+  <meta
+    name="description"
+    content="Business Intelligence and Data Analytics project report by Nduduzo Dlamini."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="trace-line" aria-hidden="true">
+  <span class="trace-fill" id="traceFill"></span>
+</div>
+
+<header class="nav" id="top">
+  <div class="nav__inner">
+
+    <a href="../index.html" class="nav__brand">
+      <span class="nav__brand-mark">ND</span>
+      <span class="nav__brand-status">
+        <i class="fa-solid fa-circle"></i>
+        online
+      </span>
+    </a>
+
+    <nav class="nav__links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../index.html#qualifications">Qualifications</a>
+      <a href="../index.html#credentials">Credentials</a>
+      <a href="../index.html#contact" class="nav__cta">Contact</a>
+    </nav>
+
+    <button
+      class="nav__toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+<main class="report-page">
+  <div class="container">
+
+    <section class="report-hero">
+      <p class="eyebrow">
+        <span class="hop">report 01</span>
+        // business intelligence
+      </p>
+
+      <h1>Business Intelligence &amp; Data Analytics</h1>
+
+      <p class="report-hero__intro">
+        A technical analytics report documenting the transformation of
+        transactional data into structured business insights using SQL,
+        data profiling, aggregation, window functions and multi-table analysis.
+      </p>
+
+      <div class="report-meta">
+        <span><i class="fa-solid fa-chart-column"></i> Data analysis</span>
+        <span><i class="fa-solid fa-code"></i> T-SQL</span>
+        <span><i class="fa-solid fa-chart-line"></i> Business Intelligence</span>
+        <span><i class="fa-solid fa-file-lines"></i> Project Report</span>
+      </div>
+    </section>
+
+    <div class="report-layout">
+
+      <aside class="report-sidebar">
+        <nav class="report-nav" aria-label="Report sections">
+          <span class="report-nav__title">// contents</span>
+          <a href="#executive-summary">Executive Summary</a>
+          <a href="#business-question">Business Question</a>
+          <a href="#dataset">Dataset &amp; Scope</a>
+          <a href="#preparation">Data Preparation</a>
+          <a href="#methodology">Methodology</a>
+          <a href="#findings">Key Findings</a>
+          <a href="#recommendations">Recommendations</a>
+          <a href="#limitations">Limitations</a>
+          <a href="#conclusion">Conclusion</a>
+        </nav>
+      </aside>
+
+      <div class="report-content">
+
+        <section class="report-section report-section--executive" id="executive-summary">
+
+          <span class="report-tag">01 · Executive Summary</span>
+
+          <h2>Executive Summary</h2>
+
+          <div class="report-summary">
+
+            <p class="report-summary__lead">
+             Dataset Overview
+              This dataset covers 1,026 individuals across Europe, North America, 
+              and the Pacific region, capturing demographic, financial, and 
+              lifestyle attributes to understand what drives bike purchasing decisions.
+
+              Overall Purchase Rate
+              Nearly half the population surveyed — 48.2% (495 individuals) — 
+              purchased a bike, indicating a strong and addressable market. The
+               average customer is 44 years old with an annual income of $56,209.
+            </p>
+
+            <p>
+              Key Drivers of Purchase Commute Distance is a strong predictor. Short-distance commuters (0–2 miles) show 
+              the highest purchase rates (55–59%), while those commuting 10+ miles are the least
+              likely to buy (29%). This suggests bikes are primarily seen as a short-commute solution.
+              Income & Occupation matter. High-income segments like Management and Professionals show
+              purchase rates as high as 70.6% in certain demographic groups, while lower-income Manual workers in Europe hover around 35–55%.
+              Gender & Marital Status play a role. Single males with a Bachelor's degree in Management
+              (North America) and single females in Skilled Manual roles both reached 70.6% purchase rates — the highest observed segments.
+            </p>
+
+            <p>
+              Rather than treating the database as a collection of isolated
+              records, the project uses SQL to establish relationships,
+              identify patterns and surface areas that warrant further
+              investigation. The resulting analysis provides a foundation for
+              understanding operational performance, user activity and changes
+              in behaviour across reporting periods.
+            </p>
+
+            <div class="report-summary__grid">
+
+              <div class="report-summary__item">
+                <strong>Data Quality</strong>
+                <span>
+                  Profile records, identify missing values and investigate
+                  anomalies before drawing conclusions.
+                </span>
+              </div>
+
+              <div class="report-summary__item">
+                <strong>Operational Analysis</strong>
+                <span>
+                  Measure activity and compare performance across relevant
+                  stations, periods or operational dimensions.
+                </span>
+              </div>
+
+              <div class="report-summary__item">
+                <strong>Trend Analysis</strong>
+                <span>
+                  Use window functions and period comparisons to evaluate
+                  changes in user activity and retention.
+                </span>
+              </div>
+
+            </div>
+
+            <div class="report-note">
+              <strong>Interpretation:</strong>
+              The findings in the sections below should be supported by the
+              actual query outputs and validated metrics from the dataset.
+              This keeps the report evidence-based rather than relying on
+              assumptions.
+            </div>
+
+          </div>
+        </section>
+
+        <section class="report-section" id="business-question">
+          <span class="report-tag">02 · Business Question</span>
+          <h2>Business Question</h2>
+
+          <p>
+            How can transactional data be analysed to identify operational
+            patterns, data-quality issues and changes in user behaviour that
+            can support better business decisions?
+          </p>
+
+          <div class="report-note">
+            The analysis specifically examines missing or anomalous records,
+            station activity, user-activity metrics and period-over-period
+            changes such as Month-over-Month growth.
+          </div>
+        </section>
+
+        <section class="report-section" id="dataset">
+          <span class="report-tag">03 · Dataset &amp; Scope</span>
+          <h2>Dataset &amp; Scope</h2>
+
+          <p>
+            Document the source, reporting period, record count and the fields
+            used in the final analysis. Update the table below as the project
+            develops.
+          </p>
+
+          <div class="report-table-wrap">
+            <table class="report-table">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Source</td>
+                  <td>Insert dataset source.</td>
+                </tr>
+                <tr>
+                  <td>Records</td>
+                  <td>Insert record count.</td>
+                </tr>
+                <tr>
+                  <td>Time period</td>
+                  <td>Insert analysis period.</td>
+                </tr>
+                <tr>
+                  <td>Key fields</td>
+                  <td>Insert dimensions, measures and identifiers used.</td>
+                </tr>
+                <tr>
+                  <td>Scope</td>
+                  <td>Describe included records and exclusions.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="report-section" id="preparation">
+          <span class="report-tag">04 · Data Preparation</span>
+          <h2>Data Preparation &amp; Quality Checks</h2>
+
+          <p>
+            Before calculating business metrics, the dataset is profiled to
+            understand its structure and identify issues that could affect
+            the analysis.
+          </p>
+
+          <ul>
+            <li>Profile records for missing or incomplete values.</li>
+            <li>Investigate duplicate or inconsistent records.</li>
+            <li>Validate relationships between related tables.</li>
+            <li>Check data types and field consistency.</li>
+            <li>Document assumptions and exclusions used in the analysis.</li>
+          </ul>
+        </section>
+
+        <section class="report-section" id="methodology">
+          <span class="report-tag">05 · Methodology</span>
+          <h2>Analytical Methodology</h2>
+
+          <p>
+            The project uses relational SQL techniques to move from raw data
+            to business-level metrics.
+          </p>
+
+          <div class="report-kpis">
+            <div class="report-kpi">
+              <span class="report-kpi__label">Technique 01</span>
+              <span class="report-kpi__value">CTEs</span>
+            </div>
+            <div class="report-kpi">
+              <span class="report-kpi__label">Technique 02</span>
+              <span class="report-kpi__value">Window Functions</span>
+            </div>
+            <div class="report-kpi">
+              <span class="report-kpi__label">Technique 03</span>
+              <span class="report-kpi__value">Aggregations</span>
+            </div>
+          </div>
+
+          <h3>Relational Analysis</h3>
+          <p>
+            Multi-table joins are used to combine related transactional,
+            customer or operational information into a form suitable for
+            analysis.
+          </p>
+
+          <h3>Period-over-Period Analysis</h3>
+          <p>
+            Window functions such as <strong>LAG()</strong> allow the current
+            period to be compared with a previous period, supporting
+            Month-over-Month growth and trend calculations.
+          </p>
+
+          <h3>Data Profiling</h3>
+          <p>
+            Profiling queries are used to identify missing records, unusual
+            values and other anomalies before interpreting the results.
+          </p>
+        </section>
+
+        <section class="report-section" id="findings">
+          <span class="report-tag">06 · Findings</span>
+          <h2>Key Findings</h2>
+
+          <p>
+            Add the validated findings from your SQL queries here. Each finding
+            should state what was observed, provide the supporting number and
+            explain why it matters.
+          </p>
+
+          <h3>Finding 1 — Data Quality &amp; Anomalies</h3>
+          <p>
+            Insert the number or percentage of missing, duplicate or anomalous
+            records identified and explain the potential impact.
+          </p>
+
+          <h3>Finding 2 — Operational / Station Activity</h3>
+          <p>
+            Insert the highest- and lowest-performing operational areas and
+            quantify the difference using the relevant metric.
+          </p>
+
+          <h3>Finding 3 — User Behaviour &amp; Retention</h3>
+          <p>
+            Insert the most important trend identified through the period
+            comparisons and MoM analysis.
+          </p>
+        </section>
+
+        <section class="report-section" id="recommendations">
+          <span class="report-tag">07 · Recommendations</span>
+          <h2>Recommendations</h2>
+
+          <p>
+            Translate each validated finding into a practical action.
+          </p>
+
+          <ol>
+            <li><strong>Data quality:</strong> Add a recommendation based on the identified anomalies.</li>
+            <li><strong>Operations:</strong> Add an action based on the operational performance analysis.</li>
+            <li><strong>User engagement:</strong> Add an action based on the retention or activity trend.</li>
+          </ol>
+        </section>
+
+        <section class="report-section" id="limitations">
+          <span class="report-tag">08 · Limitations</span>
+          <h2>Limitations &amp; Assumptions</h2>
+
+          <p>
+            Record limitations such as missing fields, incomplete periods,
+            assumptions in metric definitions, sample size or any data-quality
+            issue that could affect interpretation.
+          </p>
+        </section>
+
+        <section class="report-section" id="conclusion">
+          <span class="report-tag">09 · Conclusion</span>
+          <h2>Conclusion</h2>
+
+          <p>
+            This project demonstrates a practical approach to transforming
+            relational transactional data into structured business intelligence.
+            By combining data-quality checks, relational SQL, aggregation and
+            window functions, the analysis creates a repeatable foundation for
+            identifying operational patterns and changes in user behaviour.
+          </p>
+
+          <div class="report-actions">
+            <a href="../data-projects.html" class="btn btn--small">
+              <i class="fa-solid fa-arrow-left"></i> Back to Projects
+            </a>
+
+            <a
+              href="https://drive.google.com/drive/folders/1dd7-E48r85PpNKUq_KQlEu4Q6g_Z-5mP?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--small"
+            >
+              <i class="fa-solid fa-database"></i> View Dataset
+            </a>
+
+            <a
+              href="https://github.com/NduduzoDlamini/DataAnalysis-PortfolioProject/blob/main/SQL_EBIKE.sql"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--small"
+            >
+              <i class="fa-solid fa-code"></i> View Code
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Nduduzo Dlamini. Built by hand.</p>
+</footer>
+
+<script src="../js/script.js"></script>
+
+</body>
+</html>

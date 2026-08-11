@@ -1893,3 +1893,345 @@ font-size:2.2rem;
   }
 
 }
+
+/* ============================================================
+   ANALYTICS REPORT PAGE
+   Report-specific width/layout/content styling.
+   ============================================================ */
+
+.report-page {
+  padding: 90px 0 70px;
+}
+
+/* Give the report more breathing room than the standard 1080px site container. */
+.report-page .container {
+  max-width: 1240px;
+}
+
+.report-hero {
+  max-width: 1040px;
+  margin: 0 auto 42px;
+}
+
+.report-hero h1 {
+  margin-bottom: 14px;
+}
+
+.report-hero__intro {
+  max-width: 900px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.report-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.report-meta span,
+.report-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.report-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Main report content stays wide on the left; contents navigation stays compact on the right. */
+.report-content {
+  min-width: 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.report-sidebar {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.report-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.report-section h2 {
+  margin: 12px 0 16px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+}
+
+.report-section h3 {
+  margin: 26px 0 10px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.report-section p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0 0 14px;
+}
+
+.report-section ul,
+.report-section ol {
+  color: var(--muted);
+  line-height: 1.8;
+  padding-left: 22px;
+}
+
+.report-section li {
+  margin-bottom: 7px;
+}
+
+/* Executive Summary gets a wider, more readable layout. */
+.report-section--executive {
+  padding: 34px 38px;
+}
+
+.report-section--executive .report-summary {
+  max-width: 980px;
+}
+
+.report-summary__lead {
+  color: var(--text) !important;
+  font-size: 1.05rem;
+  line-height: 1.85 !important;
+}
+
+.report-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.report-summary__item {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.report-summary__item strong {
+  display: block;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 7px;
+}
+
+.report-summary__item span {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.report-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.report-nav {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.report-nav__title {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.report-nav a {
+  display: block;
+  padding: 8px 0;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+}
+
+.report-nav a:last-child {
+  border-bottom: 0;
+}
+
+.report-nav a:hover {
+  color: var(--text);
+}
+
+.report-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.report-kpi {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.report-kpi__label {
+  display: block;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.report-kpi__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.report-table-wrap {
+  overflow-x: auto;
+  margin-top: 18px;
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.report-table th,
+.report-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.report-table th {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.report-table td {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.report-note {
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+  padding: 15px 17px;
+  margin-top: 18px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.report-actions .btn {
+  text-decoration: none;
+}
+
+.report-code {
+  background: #070d18;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px;
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.report-code code {
+  font-family: var(--font-mono);
+  color: var(--text);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+@media (max-width: 900px) {
+  .report-page .container {
+    max-width: var(--max-w);
+  }
+
+  .report-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .report-content,
+  .report-sidebar {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .report-sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .report-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+  }
+
+  .report-nav__title {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .report-nav a {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .report-page {
+    padding-top: 75px;
+  }
+
+  .report-section,
+  .report-section--executive {
+    padding: 22px;
+  }
+
+  .report-summary__grid,
+  .report-kpis {
+    grid-template-columns: 1fr;
+  }
+}
