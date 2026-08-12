@@ -25,7 +25,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   >
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=21">
 </head>
 
 <body>
@@ -58,9 +58,10 @@
     <nav class="nav__links">
       <a href="index.html#about">About</a>
       <a href="index.html#work">Work</a>
-      <a href="gallery.html">Gallery</a>
+      <a href="index.html#experience">Experience</a>
       <a href="index.html#qualifications">Qualifications</a>
       <a href="index.html#credentials">Credentials</a>
+      <a href="gallery.html">Gallery</a>
       <a href="index.html#contact" class="nav__cta">Contact</a>
     </nav>
 
@@ -111,187 +112,13 @@
 
 
     <!-- =====================================================
-         PROJECT 1 
+         PROJECTS
+         Rendered dynamically from js/projects-data.js — edit
+         that file to add, remove, or update a project. Both this
+         page and each project's report page read from it.
     ====================================================== -->
 
-    <article class="data-project">
-
-      <div class="data-project__image">
-        <img src="assets/gallery/excel.webp" alt="Healthcare analytics dashboard">
-      </div>
-
-      <div class="data-project__body">
-
-        <span class="data-project__tag">Public Dataset · Kaggle</span>
-
-        <h2> Consumer Purchase Behavior & Bike Sales Dashboard Analysis</h2>
-
-        <p>
-          Grounded in a comprehensive customer demographics and behavioral data set, 
-          this project focuses on designing data-driven profiling models and analytical 
-          summaries to identify target purchasing segments. The analysis covers cleansing
-           customer attributes, restructuring distance variables, categorizing age brackets
-            into granular cohorts, and evaluating buying patterns across multiple metrics—such
-             as average income thresholds, commute constraints,
-          and age brackets—using advanced structural data indexing and conditional aggregation
-           rules to unlock key commercial conversion indicators.
-        </p>
-
-        <ul class="data-project__stack">
-          <li>Demographic Data Profiling</li>
-          <li>Conditional Data Segmentation</li>
-          <li>Statistical Cross-Tabulation</li>
-          <li>Metrics Calibration</li>
-        </ul>
-
-        <div class="data-project__links">
-          <a href="https://docs.google.com/spreadsheets/d/1L_EN_LWFe01CcsoxV2HPV-CcQ8asojed/edit?usp=sharing&ouid=110078759032443403894&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn btn--small">
-            <i class="fa-solid fa-database"></i> View Dataset
-          </a>
-          <a href="https://1drv.ms/x/c/74aa4d2faad8bead/IQAX40vjZuWdQb5-YXZSvCewAWNHDac2q6_FHxBY3zbH28k?e=N1dnjA" target="_blank" rel="noopener noreferrer" class="btn btn--small">
-            <i class="fa-solid fa-chart-line"></i> View Dashboard
-          </a>
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- =====================================================
-         PROJECT 2 
-    ====================================================== -->
-
-    <article class="data-project data-project--placeholder">
-
-      <div class="data-project__image">
-        <img src="assets/gallery/sql.webp" alt="Project 2 preview">
-      </div>
-
-      <div class="data-project__body">
-
-        <span class="data-project__tag">Source · TBD</span>
-
-        <h2>Business Intelligence & Data Analytics</h2>
-
-        <p>
-          Advanced relational database operations and diagnostic scripts transform
-           raw transactional logs into actionable business insights. The analytical
-            pipeline encompasses profiling data sets to isolate missing records,
-             auditing platform anomalies, calculating station traffic metrics, and
-              generating key user retention benchmarks—such as Month-over-Month (MoM) 
-              growth curves—using intricate SQL aggregations, window functions, and multi-table joins.
-        </p>
-
-        <ul class="data-project__stack">
-          <li>Transact-SQL (T-SQL)</li>
-          <li>Common Table Expressions (CTEs)</li>
-          <li>Window Functions (LAG)</li>
-          <li>Data Profiling & Aggregations</li>
-        </ul>
-
-        <div class="data-project__links">
-          <a href="https://drive.google.com/drive/folders/1dd7-E48r85PpNKUq_KQlEu4Q6g_Z-5mP?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn--small">
-            <i class="fa-solid fa-database"></i> View Dataset
-          </a>
-          <a href="reports/business-intelligence.html" class="btn btn--small">
-            <i class="fa-solid fa-file-text"></i> View Reports
-          </a>
-          <a href="https://github.com/NduduzoDlamini/DataAnalysis-PortfolioProject/blob/main/SQL_EBIKE.sql" target="_blank" rel="noopener noreferrer" class="btn btn--small">
-            <i class="fa-solid fa-code"></i> View code
-          </a>
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- =====================================================
-         PROJECT 3 
-    ====================================================== -->
-
-    <article class="data-project data-project--placeholder">
-
-      <div class="data-project__image">
-        <img src="assets/gallery/bi.webp" alt="Project 3 preview">
-      </div>
-
-      <div class="data-project__body">
-
-        <span class="data-project__tag">Source · TBD</span>
-
-        <h2>Project 3 Title</h2>
-
-        <p>
-          Placeholder description — replace with a short summary of what
-          the project analyzes, what you built, and one concrete finding
-          or insight.
-        </p>
-
-        <ul class="data-project__stack">
-          <li>Tool 1</li>
-          <li>Tool 2</li>
-        </ul>
-
-        <div class="data-project__links">
-          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--small">
-            <i class="fa-solid fa-database"></i> View Dataset
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn--small">
-            <i class="fa-solid fa-chart-line"></i> View Dashboard
-          </a>
-        </div>
-
-      </div>
-
-    </article>
-
-    <!-- =====================================================
-         PROJECT 4 
-    ====================================================== -->
-
-    <article class="data-project">
-
-      <div class="data-project__image">
-        <img src="assets/gallery/excel.webp" alt="Healthcare analytics dashboard">
-      </div>
-
-      <div class="data-project__body">
-
-        <span class="data-project__tag">Kaggle</span>
-
-        <h2> Business Intelligence & Sales Performance Analysis</h2>
-
-        <p>
-          Commercial database logs and transactional records are processed to 
-          evaluate key performance indicators for business operations. The analysis
-           tracks baseline metrics including overall revenue totals, average order 
-           values, and sales peaks categorized by product types and hours of the day.
-           High-level relational scripts identify top-performing items and isolate 
-           high-volume time windows to optimize retail infrastructure placement.
-        </p>
-
-        <ul class="data-project__stack">
-          <li>Transactional Data Profiling</li>
-          <li>Time-Series Analysis Arrays</li>
-          <li>Categorical Cross-Tabulation</li>
-          <li>Performance Matrix Calibration</li>
-        </ul>
-
-        <div class="data-project__links">
-          <a href="https://docs.google.com/spreadsheets/d/1FjBYtMvqbPdksa5ebeX0kzzi7KWOJRct/edit?usp=sharing&ouid=110078759032443403894&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn btn--small">
-            <i class="fa-solid fa-database"></i> View Dataset
-          </a>
-          <a href="https://1drv.ms/x/c/74aa4d2faad8bead/IQA2IuM0hZ4gSJyf--r6qSqXAZe2jWoVRBJOLMlukmVunqo?e=QkqhLi" target="_blank" rel="noopener noreferrer" class="btn btn--small">
-            <i class="fa-solid fa-chart-line"></i> View Dashboard
-          </a>
-        </div>
-
-      </div>
-
-    </article>
-
+    <div id="dataProjectsList"></div>
 
   </div>
 
@@ -307,7 +134,9 @@
 </footer>
 
 
-<script src="js/script.js"></script>
+<script src="js/script.js?v=20"></script>
+<script src="js/projects-data.js"></script>
+<script src="js/data-projects-render.js"></script>
 
 </body>
 </html>

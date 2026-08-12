@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Business Intelligence & Data Analytics — Report | Nduduzo Dlamini</title>
+
+  <meta
+    name="description"
+    content="Analytics report and findings for the Business Intelligence & Data Analytics project by Nduduzo Dlamini."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="css/style.css?v=21">
+</head>
+
+<body>
+
+<!-- =========================================================
+     HOP TRACE
+========================================================= -->
+
+<div class="trace-line" aria-hidden="true">
+  <span class="trace-fill" id="traceFill"></span>
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav" id="top">
+
+  <div class="nav__inner">
+
+    <a href="index.html" class="nav__brand">
+      <span class="nav__brand-mark">ND</span>
+      <span class="nav__brand-status">
+        <i class="fa-solid fa-circle"></i>
+        online
+      </span>
+    </a>
+
+    <nav class="nav__links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#experience">Experience</a>
+      <a href="index.html#qualifications">Qualifications</a>
+      <a href="index.html#credentials">Credentials</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="index.html#contact" class="nav__cta">Contact</a>
+    </nav>
+
+    <button
+      class="nav__toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+  <div class="container">
+
+    <!-- =====================================================
+         BACK LINK
+    ====================================================== -->
+
+    <p class="report-back">
+      <a href="data-projects.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Data Projects
+      </a>
+    </p>
+
+
+    <!-- =====================================================
+         HERO
+         Title, tag, and description below are auto-populated from
+         js/projects-data.js (matched by data-project-id below) —
+         no need to edit them here, edit that file instead.
+    ====================================================== -->
+
+    <section class="gallery-hero report-hero" data-project-id="business-intelligence">
+
+      <span class="data-project__tag" id="reportTag">Report</span>
+
+      <h1 id="reportTitle">Business Intelligence &amp; Data Analytics</h1>
+
+      <p id="reportDescription">
+        A written breakdown of the approach, key findings, and
+        recommendations from this project.
+      </p>
+
+    </section>
+
+
+    <div class="report-layout">
+
+      <div class="report-content">
+
+        <!-- =====================================================
+             OVERVIEW
+        ====================================================== -->
+
+        <section class="report-section" id="overview">
+
+          <h2>Overview</h2>
+
+          <p>
+            Replace this paragraph with context: what data you started
+            with, what question you were trying to answer, and why it
+            mattered. Keep it to a short paragraph — the details go in
+            the sections below.
+          </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             KEY FINDINGS
+             Duplicate a .report-finding block for each finding.
+        ====================================================== -->
+
+        <section class="report-section" id="findings">
+
+          <h2>Key Findings</h2>
+
+          <div class="report-finding">
+            <h3>Finding 1 — replace with a short headline</h3>
+            <p>
+              Replace with the finding itself, stated plainly, followed
+              by the number or evidence that supports it. One or two
+              sentences is usually enough.
+            </p>
+          </div>
+
+          <div class="report-finding">
+            <h3>Finding 2 — replace with a short headline</h3>
+            <p>
+              Replace with the finding itself, stated plainly, followed
+              by the number or evidence that supports it.
+            </p>
+          </div>
+
+          <div class="report-finding">
+            <h3>Finding 3 — replace with a short headline</h3>
+            <p>
+              Replace with the finding itself, stated plainly, followed
+              by the number or evidence that supports it.
+            </p>
+          </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             METHODOLOGY
+        ====================================================== -->
+
+        <section class="report-section" id="methodology">
+
+          <h2>Methodology</h2>
+
+          <ul class="report-list">
+            <li>Replace with step 1 — e.g. how the data was cleaned or profiled</li>
+            <li>Replace with step 2 — e.g. what queries or transformations were used</li>
+            <li>Replace with step 3 — e.g. how results were validated</li>
+          </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+             VISUALIZATION (optional)
+             Delete this section if you don't have a chart/screenshot
+             to include, or swap the src for your own image.
+        ====================================================== -->
+
+        <section class="report-section" id="visualization">
+
+          <h2>Visualization</h2>
+
+          <div class="report-image">
+            <img src="assets/gallery/sql.webp" alt="Report visualization placeholder">
+          </div>
+
+          <!-- Populated automatically from this project's links in
+               js/projects-data.js — edit that file, not this page. -->
+          <div class="data-project__links report-image-links" id="reportVizLinks"></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RECOMMENDATIONS
+        ====================================================== -->
+
+        <section class="report-section" id="recommendations">
+
+          <h2>Recommendations</h2>
+
+          <ul class="report-list">
+            <li>Replace with recommendation 1 based on the findings above</li>
+            <li>Replace with recommendation 2 based on the findings above</li>
+          </ul>
+
+        </section>
+
+      </div>
+
+      <aside class="report-sidebar">
+        <nav class="report-nav" aria-label="Report sections">
+          <span class="report-nav__title">// contents</span>
+          <a href="#overview">Overview</a>
+          <a href="#findings">Key Findings</a>
+          <a href="#methodology">Methodology</a>
+          <a href="#visualization">Visualization</a>
+          <a href="#recommendations">Recommendations</a>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Nduduzo Dlamini. Built by hand.</p>
+</footer>
+
+
+<script src="js/script.js?v=20"></script>
+<script src="js/projects-data.js"></script>
+<script src="js/report-populate.js"></script>
+
+</body>
+</html>

@@ -30,3 +30,49 @@ function updateTrace() {
 window.addEventListener('scroll', updateTrace, { passive: true });
 window.addEventListener('resize', updateTrace);
 updateTrace();
+
+// Highlight whichever link corresponds to the section currently in
+// view. Reusable for both the main site nav (About/Work/etc.) and a
+// report page's "Contents" sidebar — pass it the set of links and it
+// figures out the matching sections from their href="#id" values.
+// Safely does nothing if a page has none of the matching sections.
+function initScrollSpy(links, activeClass = 'is-active') {
+
+  const hashLinks = links.filter(link => {
+    const href = link.getAttribute('href') || '';
+    return href.startsWith('#') && href.length > 1;
+  });
+
+  const sections = hashLinks
+    .map(link => document.getElementById(link.getAttribute('href').slice(1)))
+    .filter(Boolean);
+
+  if (!sections.length) {
+    return;
+  }
+
+  const setActive = (id) => {
+    hashLinks.forEach(link => {
+      link.classList.toggle(activeClass, link.getAttribute('href') === '#' + id);
+    });
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    const mostVisible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (mostVisible) {
+      setActive(mostVisible.target.id);
+    }
+  }, {
+    rootMargin: '-40% 0px -50% 0px',
+    threshold: [0, 0.25, 0.5, 0.75, 1]
+  });
+
+  sections.forEach(section => observer.observe(section));
+
+}
+
+// Main site nav (About, Work, Experience, Qualifications, Credentials, Contact)
+initScrollSpy(Array.from(navLinks.querySelectorAll('a')));

@@ -1903,6 +1903,29 @@ font-size:2.2rem;
   padding: 90px 0 70px;
 }
 
+.report-back {
+  position: sticky;
+  top: 76px;
+  z-index: 20;
+  margin: 0 0 1.5rem;
+  padding: 8px 0;
+  background: var(--bg);
+}
+
+.report-back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.report-back a:hover {
+  color: var(--accent);
+}
+
 /* Give the report more breathing room than the standard 1080px site container. */
 .report-page .container {
   max-width: 1240px;
@@ -1998,6 +2021,35 @@ font-size:2.2rem;
 
 .report-section li {
   margin-bottom: 7px;
+}
+
+.report-finding {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+}
+
+.report-finding h3 {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+  color: var(--accent);
+}
+
+.report-finding p {
+  margin: 0;
+}
+
+.report-image img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.report-image-links {
+  margin-top: 16px;
 }
 
 /* Executive Summary gets a wider, more readable layout. */
