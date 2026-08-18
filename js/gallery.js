@@ -287,40 +287,7 @@ const galleryItems = [
       "https://github.com/NduduzoDlamini/Automated_After-Hours_Workstation_Shutdown_System"
   },
 
-  /* =======================================================
-     EVENTS
-     ======================================================= */
-
-  {
-    title: "Healthcare System Training",
-
-    category: "events",
-
-    project: "Healthcare System Support",
-
-    description:
-      "Healthcare system training and technical support activity conducted during field work, at Manzini Gov.",
-
-    type: "field",
-
-    technologies: [
-      "System Support",
-      "User Training",
-      "Technical Support"
-    ],
-
-    date: "2026",
-
-    source: "Professional field work",
-
-    image: "assets/gallery/training.webp",
-
-    alt: "Healthcare system training",
-
-    projectUrl:
-      "index.html#work"
-  },
-
+  
    /* =======================================================
      FIELD WORK
      ======================================================= */
@@ -631,9 +598,13 @@ const galleryItems = [
     source: "Professional field work",
 
     image: "assets/gallery/Deploy.webp",
+
     images: [
       "assets/gallery/Deploy.webp",
-      "assets/gallery/Deploy2.webp"
+       "assets/gallery/deploy1.webp",
+        "assets/gallery/deploy4.webp",
+      "assets/gallery/Deploy2.webp",
+       "assets/gallery/deploy3.webp"
     ],
 
     alt: "Technical field support",
@@ -642,27 +613,94 @@ const galleryItems = [
       "index.html#networking-projects"
   },
 
+{
+    title: "Healthcare Information Systems Deployment",
 
+    category: "field",
+
+    project: "Clinical Management Information System (CMIS) Training Lab Environment Setup",
+
+    description:
+      " This project involves configuring and deploying a multi-station computer laboratory dedicated to clinician training on the national Client Management Information System (CMIS) platform. It covers provisioning localized workstations, establishing secure server access interfaces, and testing client-side application logins to ensure a functional, simulated clinical environment for electronic health record (EHR) instruction.",
+
+    type: "field",
+
+    technologies: [
+      "EHR Management Platform",
+      "Workstation Deployment",
+      "Network Client Interface",
+      "Infrastructure Optimization"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/preparation.webp",
+
+    alt: "Technical field support",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
+
+  
+  {
+    title: "Network Infrastructure Maintenance & Hardware Lifecycle Management",
+
+    category: "field",
+
+    project: "Active Layer 2 Managed Switch Replacement",
+
+    description:
+      "Network reliability and uptime are restored through the on-site replacement of a failed hardware node. The operational workflow encompasses unmounting the decommissioned unit from the wall-mount network enclosure, swapping out the faulty system with a functional 24-port Cisco Catalyst series switch, and routing structured Ethernet drops to migrate client connectivity back online seamlessly.",
+
+    type: "technical",
+
+    technologies: [
+      "Cisco Catalyst 24-Port Switch",
+      "Wall-Mount Network Cabinet",
+      "Structured Patch Cabling",
+      "On-Site Infrastructure Troubleshooting"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/ds.webp",
+
+    images: [
+      "assets/gallery/ds.webp",
+      "assets/gallery/ds1.webp"
+    ],
+
+    alt: "Network server and access point setup",
+
+    projectUrl:
+      "index.html#networking-projects"
+  },
 
   /* =======================================================
      EVENTS
      ======================================================= */
 
   {
-    title: "FARSAR Support",
+    title: "FaHSAR Support",
 
     category: "events",
 
-    project: "FARSAR Data Reporting Support",
+    project: "Facility HIV/AIDS Surveillance and Reporting (FaHSAR) Technical Support",
 
     description:
-      "Supporting FARSAR during their quarterly data reporting activities.",
+      "This project involves delivering on-site clinical technical support and data optimization reviews for the Facility HIV/AIDS Surveillance and Reporting (FaHSAR) system. The workflow covers sitting down with frontline health workers directly within the facility clinic to audit reporting metrics, resolve software operational issues, and refine data-entry workflows to ensure high-accuracy public health reporting.",
 
     type: "professional",
 
     technologies: [
-      "Data Reporting",
-      "Data Support"
+      "DHIS2",
+      "Clinic Data Reconciling",
+      "On-Site Operational Support:"
     ],
 
     date: "2026",
@@ -676,6 +714,72 @@ const galleryItems = [
     projectUrl:
       "index.html#work"
   },
+
+ 
+  {
+    title: "Healthcare System Training",
+
+    category: "events",
+
+    project: "Clinical Management Information System (CMIS) Training",
+
+    description:
+      "This project involves delivering group instructional seminars to medical and administrative personnel within a structured boardroom learning environment. The training utilizes wall-mounted display projection configurations to demonstrate real-time software workflows, guiding users through secure portal authentication, data entry modules, and administrative system navigation to ensure facility-wide system adoption.",
+
+    type: "field",
+
+    technologies: [
+      "CMIS Portal Interface",
+      "User Training",
+      "Technical Support",
+      "Technical Presentation Delivery"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/training.webp",
+
+    alt: "Healthcare system training",
+
+    projectUrl:
+      "index.html#work"
+  },
+
+  {
+    title: "Healthcare Logistics & Data Management",
+
+    category: "events",
+
+    project: "electronic Logistics Management Information System (eLMIS) Facility Training",
+
+    description:
+      "This project covers the deployment and end-user onboarding of the electronic Logistics Management Information System (eLMIS) within a clinical environment. The training guides healthcare staff through digitizing commodity tracking, auditing physical stock registers against digital data entries, and leveraging tablet interfaces to manage pharmaceutical supplies and reduce stockouts.",
+
+    type: "field",
+
+    technologies: [
+      "eLMIS Software Platform",
+      "Point-of-Care Tablets",
+      "Data Verification Cross-Tabulation"
+    ],
+
+    date: "2026",
+
+    source: "Professional field work",
+
+    image: "assets/gallery/elmis.webp",
+
+    images:[ "assets/gallery/elmis.webp",
+            "assets/gallery/elmis1.webp"
+    ],
+    alt: "Healthcare system training",
+
+    projectUrl:
+      "index.html#work"
+  },
+
 
   /* =======================================================
      QALIFICATIONS

@@ -1875,7 +1875,6 @@ font-size:2.2rem;
 
 .data-project--placeholder{
     opacity: 1;
-    border-style: dashed;
 }
 
 @media (max-width: 760px){
