@@ -690,7 +690,7 @@ const galleryItems = [
 
     category: "events",
 
-    project: "Facility HIV/AIDS Surveillance and Reporting (FaHSAR) Technical Support",
+    project: "Facility Health Semi-anual Review (FaHSAR) Technical Support",
 
     description:
       "This project involves delivering on-site clinical technical support and data optimization reviews for the Facility HIV/AIDS Surveillance and Reporting (FaHSAR) system. The workflow covers sitting down with frontline health workers directly within the facility clinic to audit reporting metrics, resolve software operational issues, and refine data-entry workflows to ensure high-accuracy public health reporting.",
