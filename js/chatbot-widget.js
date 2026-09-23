@@ -1,6 +1,6 @@
 
 
-const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev"; 
+const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";  
 
 (function () {
   // ---- Build the widget markup ----
@@ -46,9 +46,11 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     // escapedText has already been through escapeHtml, so this is safe to
     // insert as innerHTML — we're only wrapping links in <a> tags.
 
-    // First, handle markdown-style [Label](url) links.
+    // First, handle markdown-style [Label](url) links — tolerate a stray
+    // space between "]" and "(" and strip trailing punctuation that ended
+    // up inside the parens (e.g. "(url).") since models aren't always exact.
     let result = escapedText.replace(
-      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      /\[([^\]]+)\]\s*\((https?:\/\/[^\s)]+?)[.,!?]*\)/g,
       (match, label, url) =>
         `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`
     );
