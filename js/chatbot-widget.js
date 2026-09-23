@@ -36,10 +36,45 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
   let history = [];
   let sending = false;
 
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function linkify(escapedText) {
+    // escapedText has already been through escapeHtml, so this is safe to
+    // insert as innerHTML — we're only wrapping links in <a> tags.
+
+    // First, handle markdown-style [Label](url) links.
+    let result = escapedText.replace(
+      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      (match, label, url) =>
+        `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`
+    );
+
+    // Then linkify any remaining bare URLs (fallback, in case the model
+    // doesn't use the markdown format for some reply).
+    result = result.replace(/(https?:\/\/[^\s<]+)/g, (url) => {
+      const trailingMatch = url.match(/[.,!?)]+$/);
+      const trailing = trailingMatch ? trailingMatch[0] : "";
+      const cleanUrl = trailing ? url.slice(0, -trailing.length) : url;
+      return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>${trailing}`;
+    });
+
+    return result;
+  }
+
   function addMessage(text, role) {
     const el = document.createElement("div");
     el.className = `chatbot-msg ${role === "user" ? "user" : "bot"}`;
-    el.textContent = text;
+
+    if (role === "user") {
+      el.textContent = text;
+    } else {
+      el.innerHTML = linkify(escapeHtml(text));
+    }
+
     messagesEl.appendChild(el);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return el;
