@@ -1,4 +1,5 @@
 
+
 const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
 
 (function () {
@@ -43,25 +44,21 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     return div.innerHTML;
   }
 
-  // Converts markdown-style [Label](url) links (already correctly built
-  // by the Worker) into real clickable <a> tags. Also linkifies any bare
-  // URL as a fallback. Runs AFTER escapeHtml, so this is safe to assign
-  // via innerHTML — we are only ever inserting <a> tags we build here
-  // ourselves, never anything that came directly from model/user text.
+  
+  // single pass guarantees every matched span is consumed exactly once.
   function linkify(escapedText) {
-    let result = escapedText.replace(
-      /\[([^\]]+)\]\s*\((https?:\/\/[^\s)\[\]]+?)[.,!?]*\)/g,
-      (match, label, url) => `<a href="${url}">${label}</a>`
+    return escapedText.replace(
+      /\[([^\]]+)\]\s*\((https?:\/\/[^\s)\[\]]+?)[.,!?]*\)|(https?:\/\/[^\s<]+)/g,
+      (match, mdLabel, mdUrl, bareUrl) => {
+        if (mdUrl) {
+          return `<a href="${mdUrl}">${mdLabel}</a>`;
+        }
+        const trailingMatch = bareUrl.match(/[.,!?)]+$/);
+        const trailing = trailingMatch ? trailingMatch[0] : "";
+        const cleanUrl = trailing ? bareUrl.slice(0, -trailing.length) : bareUrl;
+        return `<a href="${cleanUrl}">${cleanUrl}</a>${trailing}`;
+      }
     );
-
-    result = result.replace(/(https?:\/\/[^\s<]+)/g, (url) => {
-      const trailingMatch = url.match(/[.,!?)]+$/);
-      const trailing = trailingMatch ? trailingMatch[0] : "";
-      const cleanUrl = trailing ? url.slice(0, -trailing.length) : url;
-      return `<a href="${cleanUrl}">${cleanUrl}</a>${trailing}`;
-    });
-
-    return result;
   }
 
   function addMessage(text, role) {
