@@ -1,5 +1,4 @@
 
-
 const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
 
 (function () {
@@ -51,7 +50,7 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
   // ourselves, never anything that came directly from model/user text.
   function linkify(escapedText) {
     let result = escapedText.replace(
-      /\[([^\]]+)\]\s*\((https?:\/\/[^\s)]+?)[.,!?]*\)/g,
+      /\[([^\]]+)\]\s*\((https?:\/\/[^\s)\[\]]+?)[.,!?]*\)/g,
       (match, label, url) => `<a href="${url}">${label}</a>`
     );
 
