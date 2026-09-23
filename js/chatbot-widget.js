@@ -1,6 +1,6 @@
 
 
-const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";  
+const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev"; 
 
 (function () {
   // ---- Build the widget markup ----
@@ -52,7 +52,7 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     let result = escapedText.replace(
       /\[([^\]]+)\]\s*\((https?:\/\/[^\s)]+?)[.,!?]*\)/g,
       (match, label, url) =>
-        `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`
+        `<a href="${url}">${label}</a>`
     );
 
     // Then linkify any remaining bare URLs (fallback, in case the model
@@ -61,7 +61,7 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
       const trailingMatch = url.match(/[.,!?)]+$/);
       const trailing = trailingMatch ? trailingMatch[0] : "";
       const cleanUrl = trailing ? url.slice(0, -trailing.length) : url;
-      return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>${trailing}`;
+      return `<a href="${cleanUrl}">${cleanUrl}</a>${trailing}`;
     });
 
     return result;
