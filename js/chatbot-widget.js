@@ -1,5 +1,3 @@
-
-
 const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
 
 (function () {
@@ -44,23 +42,6 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     return div.innerHTML;
   }
 
-  
-  // single pass guarantees every matched span is consumed exactly once.
-  function linkify(escapedText) {
-    return escapedText.replace(
-      /\[([^\]]+)\]\s*\((https?:\/\/[^\s)\[\]]+?)[.,!?]*\)|(https?:\/\/[^\s<]+)/g,
-      (match, mdLabel, mdUrl, bareUrl) => {
-        if (mdUrl) {
-          return `<a href="${mdUrl}">${mdLabel}</a>`;
-        }
-        const trailingMatch = bareUrl.match(/[.,!?)]+$/);
-        const trailing = trailingMatch ? trailingMatch[0] : "";
-        const cleanUrl = trailing ? bareUrl.slice(0, -trailing.length) : bareUrl;
-        return `<a href="${cleanUrl}">${cleanUrl}</a>${trailing}`;
-      }
-    );
-  }
-
   function addMessage(text, role) {
     const el = document.createElement("div");
     el.className = `chatbot-msg ${role === "user" ? "user" : "bot"}`;
@@ -69,13 +50,37 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
       // User's own text is never treated as HTML.
       el.textContent = text;
     } else {
-      // Bot text: escape first, then linkify the escaped (safe) text.
-      el.innerHTML = linkify(escapeHtml(text));
+      // Bot text: escape so it can never be interpreted as markup.
+      el.innerHTML = escapeHtml(text);
     }
 
     messagesEl.appendChild(el);
     messagesEl.scrollTop = messagesEl.scrollHeight;
     return el;
+  }
+
+  function addProjectChips(links) {
+    if (!Array.isArray(links) || links.length === 0) return;
+
+    const container = document.createElement("div");
+    container.className = "chatbot-project-chips";
+
+    links.forEach((link) => {
+      if (!link || !link.label || !link.url) return;
+
+      const chip = document.createElement("a");
+
+      chip.className = "chatbot-project-chip";
+      chip.textContent = link.label;
+      chip.href = link.url;
+      chip.target = "_blank";
+      chip.rel = "noopener noreferrer";
+
+      container.appendChild(chip);
+    });
+
+    messagesEl.appendChild(container);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
   function openWindow() {
@@ -127,6 +132,11 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
         );
       } else {
         addMessage(data.reply, "bot");
+
+        if (Array.isArray(data.links)) {
+          addProjectChips(data.links);
+        }
+
         history.push({ role: "user", text });
         history.push({ role: "model", text: data.reply });
       }
