@@ -1,16 +1,6 @@
-/**
- * Portfolio Chatbot Widget
- * ------------------------
- * Drop this file into your site and include it near the end of <body>:
- *   <link rel="stylesheet" href="chatbot-widget.css">
- *   <script src="chatbot-widget.js"></script>
- *
- * It injects a floating chat button + window and talks to your
- * Cloudflare Worker (which holds the Gemini API key server-side).
- * Update WORKER_URL below to your deployed worker's address.
- */
 
-const WORKER_URL = "portfolio-chat.nduduzodlamini5.workers.dev"; 
+
+const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev"; 
 
 (function () {
   // ---- Build the widget markup ----
