@@ -1,6 +1,6 @@
 
 
-const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev"; 
+const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
 
 (function () {
   // ---- Build the widget markup ----
@@ -36,27 +36,25 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
   let history = [];
   let sending = false;
 
+  // Escapes any HTML-special characters so raw text can never be
+  // interpreted as markup when we later set innerHTML.
   function escapeHtml(str) {
     const div = document.createElement("div");
     div.textContent = str;
     return div.innerHTML;
   }
 
+  // Converts markdown-style [Label](url) links (already correctly built
+  // by the Worker) into real clickable <a> tags. Also linkifies any bare
+  // URL as a fallback. Runs AFTER escapeHtml, so this is safe to assign
+  // via innerHTML — we are only ever inserting <a> tags we build here
+  // ourselves, never anything that came directly from model/user text.
   function linkify(escapedText) {
-    // escapedText has already been through escapeHtml, so this is safe to
-    // insert as innerHTML — we're only wrapping links in <a> tags.
-
-    // First, handle markdown-style [Label](url) links — tolerate a stray
-    // space between "]" and "(" and strip trailing punctuation that ended
-    // up inside the parens (e.g. "(url).") since models aren't always exact.
     let result = escapedText.replace(
       /\[([^\]]+)\]\s*\((https?:\/\/[^\s)]+?)[.,!?]*\)/g,
-      (match, label, url) =>
-        `<a href="${url}">${label}</a>`
+      (match, label, url) => `<a href="${url}">${label}</a>`
     );
 
-    // Then linkify any remaining bare URLs (fallback, in case the model
-    // doesn't use the markdown format for some reply).
     result = result.replace(/(https?:\/\/[^\s<]+)/g, (url) => {
       const trailingMatch = url.match(/[.,!?)]+$/);
       const trailing = trailingMatch ? trailingMatch[0] : "";
@@ -72,8 +70,10 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     el.className = `chatbot-msg ${role === "user" ? "user" : "bot"}`;
 
     if (role === "user") {
+      // User's own text is never treated as HTML.
       el.textContent = text;
     } else {
+      // Bot text: escape first, then linkify the escaped (safe) text.
       el.innerHTML = linkify(escapeHtml(text));
     }
 
