@@ -21,8 +21,19 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     </div>
   `;
 
+  // Desktop-only teaser: an arrow + speech bubble pointing at the chat
+  // toggle, dismissible with its own close button. Hidden on mobile via
+  // CSS (see chatbot-widget.css), so no JS width-checking needed here.
+  const teaser = document.createElement("div");
+  teaser.id = "chatbot-teaser";
+  teaser.innerHTML = `
+    <button id="chatbot-teaser-close" aria-label="Dismiss">&times;</button>
+    <div class="chatbot-teaser-bubble">Hi. Need any help?</div>
+  `;
+
   document.body.appendChild(toggle);
   document.body.appendChild(win);
+  document.body.appendChild(teaser);
 
   const messagesEl = win.querySelector("#chatbot-messages");
   const inputEl = win.querySelector("#chatbot-input");
@@ -42,7 +53,24 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     return div.innerHTML;
   }
 
-  function addMessage(text, role) {
+  // Turns [Label] markers (plain text, no URL embedded) into clickable
+  // inline links using the {label, url} pairs the Worker sent alongside
+  // the reply. Since no URL ever appears inside the message text itself,
+  // this single regex pass can't double-match or nest — each [Label] is
+  // just a plain bracket lookup, not a URL to parse.
+  function linkifyLabels(escapedText, links) {
+    const urlByLabel = {};
+    (links || []).forEach((l) => {
+      if (l && l.label && l.url) urlByLabel[l.label] = l.url;
+    });
+
+    return escapedText.replace(/\[([^\]]+)\]/g, (match, label) => {
+      const url = urlByLabel[label];
+      return url ? `<a href="${url}">${label}</a>` : match;
+    });
+  }
+
+  function addMessage(text, role, links) {
     const el = document.createElement("div");
     el.className = `chatbot-msg ${role === "user" ? "user" : "bot"}`;
 
@@ -50,8 +78,8 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
       // User's own text is never treated as HTML.
       el.textContent = text;
     } else {
-      // Bot text: escape so it can never be interpreted as markup.
-      el.innerHTML = escapeHtml(text);
+      // Bot text: escape first, then linkify the escaped (safe) text.
+      el.innerHTML = linkifyLabels(escapeHtml(text), links);
     }
 
     messagesEl.appendChild(el);
@@ -59,32 +87,9 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     return el;
   }
 
-  function addProjectChips(links) {
-    if (!Array.isArray(links) || links.length === 0) return;
-
-    const container = document.createElement("div");
-    container.className = "chatbot-project-chips";
-
-    links.forEach((link) => {
-      if (!link || !link.label || !link.url) return;
-
-      const chip = document.createElement("a");
-
-      chip.className = "chatbot-project-chip";
-      chip.textContent = link.label;
-      chip.href = link.url;
-      chip.target = "_blank";
-      chip.rel = "noopener noreferrer";
-
-      container.appendChild(chip);
-    });
-
-    messagesEl.appendChild(container);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-  }
-
   function openWindow() {
     win.classList.add("open");
+    document.body.classList.add("chatbot-open");
     if (messagesEl.children.length === 0) {
       addMessage(
         "Hi! Ask me anything about Nduduzo's background, skills, or projects.",
@@ -96,12 +101,20 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
 
   function closeWindow() {
     win.classList.remove("open");
+    document.body.classList.remove("chatbot-open");
   }
 
   toggle.addEventListener("click", () => {
     win.classList.contains("open") ? closeWindow() : openWindow();
+    hideTeaser();
   });
   closeBtn.addEventListener("click", closeWindow);
+
+  const teaserCloseBtn = teaser.querySelector("#chatbot-teaser-close");
+  function hideTeaser() {
+    teaser.style.display = "none";
+  }
+  teaserCloseBtn.addEventListener("click", hideTeaser);
 
   async function sendMessage() {
     const text = inputEl.value.trim();
@@ -131,11 +144,7 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
           "bot"
         );
       } else {
-        addMessage(data.reply, "bot");
-
-        if (Array.isArray(data.links)) {
-          addProjectChips(data.links);
-        }
+        addMessage(data.reply, "bot", data.links);
 
         history.push({ role: "user", text });
         history.push({ role: "model", text: data.reply });

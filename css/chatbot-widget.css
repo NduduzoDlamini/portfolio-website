@@ -74,6 +74,7 @@
 #chatbot-messages {
   flex: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -106,16 +107,6 @@
 .chatbot-msg.bot.typing {
   color: #888;
   font-style: italic;
-}
-
-.chatbot-msg.bot a {
-  color: #37d6c8;
-  text-decoration: underline;
-  word-break: break-word;
-}
-
-.chatbot-msg.bot a:hover {
-  color: #6be8db;
 }
 
 #chatbot-input-row {
@@ -151,38 +142,131 @@
   cursor: default;
 }
 
+.chatbot-msg.bot a {
+  color: #37d6c8;
+  text-decoration: underline;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.chatbot-msg.bot a:hover {
+  color: #6be8db;
+}
 /* ---------------------------------------------------------
-   Project chips (rendered from data.links by addProjectChips)
+   Desktop-only teaser bubble pointing at the chat toggle
 --------------------------------------------------------- */
 
-.chatbot-project-chips {
+#chatbot-teaser {
+  position: fixed;
+  bottom: 36px;
+  right: 96px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 8px 0 12px;
-  padding: 0 4px;
-}
-
-.chatbot-project-chip {
-  display: inline-flex;
   align-items: center;
-  padding: 7px 12px;
-  border-radius: 999px;
-  background: rgba(45, 212, 191, 0.12);
-  border: 1px solid rgba(45, 212, 191, 0.35);
-  color: #2dd4bf;
-  text-decoration: none;
-  font-size: 12px;
+  gap: 8px;
+  z-index: 9998;
+  animation: chatbot-teaser-in 0.4s ease;
+}
+
+@keyframes chatbot-teaser-in {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#chatbot-teaser-close {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  border: none;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.chatbot-teaser-bubble {
+  background: #fff;
+  color: #111;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-.chatbot-project-chip:hover {
-  background: rgba(45, 212, 191, 0.22);
-  border-color: rgba(45, 212, 191, 0.65);
-  transform: translateY(-1px);
+/* Desktop-only: hide the teaser entirely on mobile/narrow viewports */
+@media (max-width: 768px) {
+  #chatbot-teaser {
+    display: none !important;
+  }
 }
 
-.chatbot-project-chip:active {
-  transform: translateY(0);
+/* ---------------------------------------------------------
+   Mobile: full-screen chat window (like a native chat sheet)
+   instead of a small floating box.
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  #chatbot-window.open {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    border: none;
+    z-index: 10000;
+  }
+
+  #chatbot-header {
+    padding-top: calc(14px + env(safe-area-inset-top, 0px));
+    padding-bottom: 14px;
+    flex-shrink: 0;
+  }
+
+  #chatbot-header span {
+    font-size: 1.05rem;
+  }
+
+  #chatbot-close {
+    font-size: 1.6rem;
+  }
+
+  #chatbot-messages {
+    padding: 16px;
+  }
+
+  #chatbot-input-row {
+    padding: 10px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    flex-shrink: 0;
+  }
+
+  #chatbot-input {
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+
+  /* Hide the floating launcher bubble while the full-screen chat is open,
+     so it doesn't float on top of the fullscreen header. */
+  body.chatbot-open #chatbot-toggle {
+    display: none;
+  }
 }
