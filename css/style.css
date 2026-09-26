@@ -244,6 +244,14 @@ a { color: inherit; text-decoration: none; }
   visibility: visible;
   transform: translate(-50%, 0);
 }
+
+/* On touch devices there's no real hover, so a tap just leaves this
+   tooltip stuck open — hide it entirely below the nav's mobile breakpoint. */
+@media (max-width: 760px) {
+  .theme-toggle::after {
+    display: none;
+  }
+}
 /* Swap which icon shows based on the active theme; both live in the
    markup so there's no layout jump or icon-swap flash on click. */
 .theme-toggle .fa-moon { display: none; }
