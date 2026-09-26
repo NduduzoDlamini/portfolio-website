@@ -41,8 +41,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
 
   const saved = localStorage.getItem(STORAGE_KEY);
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  applyTheme(saved || (prefersLight ? 'light' : 'dark'));
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(saved || (prefersDark ? 'dark' : 'light'));
 
   if (toggle) {
     toggle.addEventListener('click', () => {
@@ -54,9 +54,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
   // Follow the OS setting live, but only until the person picks a
   // theme themselves — once they do, their choice always wins.
-  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     if (!localStorage.getItem(STORAGE_KEY)) {
-      applyTheme(e.matches ? 'light' : 'dark');
+      applyTheme(e.matches ? 'dark' : 'light');
     }
   });
 })();

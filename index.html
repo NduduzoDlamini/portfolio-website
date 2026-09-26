@@ -16,7 +16,7 @@
 <script>
   (function() {
     var t = localStorage.getItem('theme');
-    if (t === 'light' || (!t && matchMedia('(prefers-color-scheme: light)').matches)) {
+    if (t === 'light' || (!t && !matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.setAttribute('data-theme', 'light');
     }
   })();
