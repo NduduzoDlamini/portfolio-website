@@ -12,6 +12,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+<script>
+  (function() {
+    var t = localStorage.getItem('theme');
+    if (t === 'light' || (!t && matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
 <link rel="stylesheet" href="css/style.css?v=20" />
 <link rel="stylesheet" href="css/chatbot-widget.css">
 </head>
@@ -36,6 +44,10 @@
       <a href="gallery.html">Gallery</a>
       <a href="#contact" class="nav__cta">Contact</a>
     </nav>
+    <button id="themeToggle" class="theme-toggle" aria-label="Switch to light mode" aria-pressed="false">
+      <i class="fa-solid fa-moon"></i>
+      <i class="fa-solid fa-sun"></i>
+    </button>
     <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -93,7 +105,7 @@
           <h3>Data Analysis Projects</h3>
           <p>    Dashboards and reports that turn public datasets into decisions —
                 built with SQL, Python and Tableau.</p>
-          <a href="#" class="btn btn--small">
+          <a href="data-projects.html" class="btn btn--small">
            View Data Projects
            <i class="fa-solid fa-arrow-right"></i></a>
         </div>
@@ -106,7 +118,7 @@
         <div class="work-card__body">
           <h3>Networking Projects</h3>
           <p>Structured cabling, switch configuration and infrastructure support work, including HMIS fieldwork.</p>
-            <a href="gallery.html?category=networking" class="btn btn--small">
+            <a href="gallery.html?category=field" class="btn btn--small">
               View Field Gallery
       <i class="fa-solid fa-arrow-right"></i></a>
         </div>
@@ -147,7 +159,7 @@
             </div>
           </a>
 
-        <a href="#" class="preview-card">
+        <a href="gallery.html?category=data" class="preview-card">
         <img src="assets/gallery/data.webp" alt="Data analytics dashboard">
           <div class="preview-overlay">
             <h3>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Consumer Purchase Behavior & Bike Sales Dashboard Analysis — Report | Nduduzo Dlamini</title>
+
+  <meta
+    name="description"
+    content="Analytics report and findings for the Consumer Purchase Behavior & Bike Sales Dashboard Analysis project by Nduduzo Dlamini."
+  >
+  
+  <link rel="icon" type="image/webp" href="../assets/gallery/dp.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="../css/style.css?v=22">
+
+  <!--
+    Scroll-spy highlight for the sidebar nav (see js/report-populate.js).
+    Safe to move this rule into css/style.css instead — it's kept here
+    for now just so it ships with the feature.
+  -->
+  <style>
+    .report-nav a.is-active {
+      color: #5eead4;
+      font-weight: 600;
+    }
+
+    .report-hero .data-project__stack {
+      justify-content: center;
+      margin: 1.5rem auto 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HOP TRACE
+========================================================= -->
+
+<div class="trace-line" aria-hidden="true">
+  <span class="trace-fill" id="traceFill"></span>
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="nav" id="top">
+
+  <div class="nav__inner">
+
+    <a href="../index.html" class="nav__brand">
+      <span class="nav__brand-mark">ND</span>
+      <span class="nav__brand-status">
+        <i class="fa-solid fa-circle"></i>
+        online
+      </span>
+    </a>
+
+    <nav class="nav__links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#qualifications">Qualifications</a>
+      <a href="../index.html#credentials">Credentials</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../index.html#contact" class="nav__cta">Contact</a>
+    </nav>
+
+    <button
+      class="nav__toggle"
+      id="navToggle"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+  <div class="container">
+
+    <!-- =====================================================
+         BACK LINK
+    ====================================================== -->
+
+    <p class="report-back">
+      <a href="../data-projects.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Data Projects
+      </a>
+    </p>
+
+
+    <!-- =====================================================
+         HERO
+         Title, tag, and description below are auto-populated from
+         js/projects-data.js (matched by data-project-id below) —
+         no need to edit them here, edit that file instead.
+    ====================================================== -->
+
+    <section class="gallery-hero report-hero" data-project-id="bike-sales">
+
+      <span class="data-project__tag" id="reportTag">Report</span>
+
+      <h1 id="reportTitle">Business Intelligence &amp; Data Analytics</h1>
+
+      <p id="reportDescription">
+        A written breakdown of the approach, key findings, and
+        recommendations from this project.
+      </p>
+
+      <ul class="data-project__stack" id="reportStack"></ul>
+
+    </section>
+
+
+    <div class="report-layout">
+
+      <div class="report-content">
+
+        <!-- =====================================================
+             OVERVIEW
+        ====================================================== -->
+
+        <section class="report-section" id="overview">
+
+          <h2>Overview</h2>
+
+          <p>
+           This project analyzes a dataset of 1,000 bike buyer records to understand what 
+           drives bike purchase decisions across demographic, economic, and geographic factors.
+           Using Microsoft Excel for data cleaning, transformation, and PivotTable analysis, 
+           the project explores how income, gender, age, commute distance, region, and marital
+           status relate to whether a customer purchased a bike. The workbook includes a working 
+           sheet with calculated fields (age brackets) and a PivotTable sheet with grouped summaries, 
+           culminating in a dashboard for decision-makers.
+          </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             KEY FINDINGS
+             Duplicate a .report-finding block for each finding.
+        ====================================================== -->
+
+        <section class="report-section" id="findings">
+
+          <h2>Key Findings</h2>
+
+          <div class="report-finding">
+            <h3>Finding 1 — Purchasers earn more than non-purchasers</h3>
+            <p>
+              Average income for those who purchased a bike is $57,963**, compared to **$54,875 for 
+              those who did not — a difference of roughly $3,088 (5.6%). Income is a measurable differentiator, though not the only one.
+            </p>
+          </div>
+
+          <div class="report-finding">
+            <h3>Finding 2 — Middle-aged buyers dominate purchases</h3>
+            <p>
+              Of the 481 total purchases, 383 came from the "Middle age" bracket (31–54), representing nearly 80% of all buyers. Adolescents (under 31)
+               purchased only 39 bikes, and older customers (55+) purchased 59. The middle-aged segment is clearly the core market.
+            </p>
+          </div>
+
+          <div class="report-finding">
+            <h3>Finding 3 — Short commutes drive the most purchases</h3>
+            <p>
+              Buyers with a 0–1 mile commute made 200 purchases — the highest of any distance band, 
+              and more than the next two bands combined. Purchase counts drop steadily as commute distance increases, 
+              with only 33 purchases among riders commuting 10+ miles. This suggests bikes are being bought for short, local trips rather than long commutes.
+            </p>
+          </div>
+                   
+          <div class="report-finding">
+            <h3>Finding 4 —  Male buyers have higher average income and purchase slightly more</h3>
+            <p>
+              Males who purchased had an average income of $60,124**, versus **$55,774 for females who purchased. Overall purchase counts (481 of 1,000) skew slightly
+              toward males in the dataset, and male non-purchasers still had a higher average income ($56,208) than female non-purchasers ($53,440).
+            </p>
+          </div>             
+          
+        </section>
+
+
+        <!-- =====================================================
+             METHODOLOGY
+        ====================================================== -->
+
+        <section class="report-section" id="methodology">
+
+          <h2>Methodology</h2>
+
+          <ul class="report-list">
+            <li>Data source: A single Excel workbook with four sheets — bike_buyers (raw data), Working 
+              Sheet (with an added Age Brackets calculated column), Pivot table (summarized groupings), and Dashboard (visual layout).</li>
+            <li>Data cleaning: Converted abbreviated category labels in the raw sheet (e.g., "M"/"S"/"F" for Marital Status and Gender, "10+ Miles" for commute distance) 
+              into full-text labels (Married/Single/Female, More than 10 Miles). Created the Age Brackets column using a nested IF formula: 
+              =IF(L2>54,"Old", IF(L2>=31,"Middle age", IF(L2<31,"Adolescent", "invalid"))). </li>
+            <li>Summarization: Built PivotTables to aggregate Average of Income by Gender × Purchased Bike, Count of 
+              Purchased Bike by Commute Distance, and Count of Purchased Bike by Age Brackets.</li>
+            <li>Visualization: Assembled a dashboard (sheet 4) to present the pivot outputs for stakeholder review.</li>
+            <li>Validation: Cross-checked that the sum of the Count of Purchased Bike pivot equals 1,000 (the full dataset), and that "Yes" + "No" totals reconcile across every grouping.</li>
+          </ul>
+
+        </section>
+
+
+        <!-- =====================================================
+             VISUALIZATION (optional)
+             Delete this section if you don't have a chart/screenshot
+             to include, or swap the src for your own image.
+        ====================================================== -->
+
+        <section class="report-section" id="visualization">
+
+          <h2>Visualization</h2>
+
+        <div class="report-image" id="reportVizImage">
+          <img
+            src="../assets/gallery/data.webp"
+            alt="Bike Sales Dashboard showing average income by gender, purchases by commute distance, and purchases by age bracket"
+            loading="lazy"
+          >
+        </div>
+
+          <!-- Populated automatically from this project's links in
+               js/projects-data.js — edit that file, not this page. -->
+          <div class="data-project__links report-image-links" id="reportVizLinks"></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             RECOMMENDATIONS
+        ====================================================== -->
+
+        <section class="report-section" id="recommendations">
+
+          <h2>Recommendations</h2>
+
+          <ul class="report-list">
+            <li>Target middle-aged buyers as the primary marketing segment — Since 80% of purchases come from the 31–54 age bracket, align ad spend, messaging, and product positioning with this demographic. Younger and 
+              older segments are smaller opportunities that may require different product lines (e.g., commuter vs. leisure models).</li>
+            <li>Emphasize short-commute convenience in messaging — With 200 of 481 purchases coming from 0–1 mile commuters, marketing should stress "quick trips," "last-mile convenience," and "around-the-neighborhood" use cases rather than long-distance touring.</li>
+            <li>Launch targeted campaigns for female buyers — Females who purchased averaged $4,350 less income than males who purchased, and female non-purchasers averaged lower income still. Consider pricing tiers or financing options to widen access for this under-penetrated segment.</li>
+            <li>Prioritize regional focus based on conversion rate — [If your PivotTable or dashboard has a Region breakdown, insert the highest-converting region here, e.g., "The Pacific region shows the strongest purchase rate — concentrate new inventory and promotions there first."]</li>
+            <li>Create upsell paths for high-income non-purchasers — Buyers in the top income band still show meaningful "No" counts; these are warm leads with the ability to buy and should be retargeted with premium models or test rides.</li>
+          </ul>
+
+        </section>
+
+      </div>
+
+      <aside class="report-sidebar">
+        <nav class="report-nav" aria-label="Report sections">
+          <span class="report-nav__title">// contents</span>
+          <a href="#overview">Overview</a>
+          <a href="#findings">Key Findings</a>
+          <a href="#methodology">Methodology</a>
+          <a href="#visualization">Visualization</a>
+          <a href="#recommendations">Recommendations</a>
+        </nav>
+      </aside>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Nduduzo Dlamini. Built by hand.</p>
+</footer>
+
+
+<script src="../js/script.js?v=20"></script>
+<script src="../js/projects-data.js"></script>
+<script src="../js/report-populate.js"></script>
+
+</body>
+</html>

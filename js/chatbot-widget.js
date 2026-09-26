@@ -111,10 +111,15 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
   closeBtn.addEventListener("click", closeWindow);
 
   const teaserCloseBtn = teaser.querySelector("#chatbot-teaser-close");
+  const teaserBubble = teaser.querySelector(".chatbot-teaser-bubble");
   function hideTeaser() {
     teaser.style.display = "none";
   }
   teaserCloseBtn.addEventListener("click", hideTeaser);
+  teaserBubble.addEventListener("click", () => {
+    openWindow();
+    hideTeaser();
+  });
 
   async function sendMessage() {
     const text = inputEl.value.trim();

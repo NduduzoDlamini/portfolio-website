@@ -203,6 +203,7 @@
   font-size: 0.85rem;
   font-weight: 600;
   white-space: nowrap;
+  cursor: pointer;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
@@ -269,4 +270,54 @@
   body.chatbot-open #chatbot-toggle {
     display: none;
   }
+}
+
+/* ---------------------------------------------------------
+   Light mode support
+   Everything above is styled for the dark theme baked in as
+   the default. This follows the same [data-theme="light"]
+   attribute the rest of the site toggles on <html>, so the
+   widget switches to light surfaces alongside the page.
+--------------------------------------------------------- */
+
+:root[data-theme="light"] #chatbot-window {
+  background: #ffffff;
+  border-color: #DBE1EC;
+}
+
+:root[data-theme="light"] #chatbot-header {
+  background: #F5F7FB;
+  color: #101828;
+  border-bottom-color: #DBE1EC;
+}
+
+:root[data-theme="light"] #chatbot-close {
+  color: #5B6478;
+}
+
+:root[data-theme="light"] #chatbot-messages {
+  background: #ffffff;
+}
+
+:root[data-theme="light"] .chatbot-msg.bot {
+  background: #EDF1F7;
+  color: #101828;
+}
+
+:root[data-theme="light"] .chatbot-msg.bot.typing {
+  color: #5B6478;
+}
+
+:root[data-theme="light"] #chatbot-input-row {
+  border-top-color: #DBE1EC;
+}
+
+:root[data-theme="light"] #chatbot-input {
+  background: #EDF1F7;
+  border-color: #DBE1EC;
+  color: #101828;
+}
+
+:root[data-theme="light"] #chatbot-input::placeholder {
+  color: #5B6478;
 }

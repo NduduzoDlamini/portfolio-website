@@ -12,6 +12,7 @@
     content="Analytics report and findings for the Business Intelligence & Data Analytics project by Nduduzo Dlamini."
   >
 
+  <link rel="icon" type="image/webp" href="../assets/gallery/dp.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -25,7 +26,24 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   >
 
-  <link rel="stylesheet" href="css/style.css?v=22">
+  <link rel="stylesheet" href="../css/style.css?v=22">
+
+  <!--
+    Scroll-spy highlight for the sidebar nav (see js/report-populate.js).
+    Safe to move this rule into css/style.css instead — it's kept here
+    for now just so it ships with the feature.
+  -->
+  <style>
+    .report-nav a.is-active {
+      color: #5eead4;
+      font-weight: 600;
+    }
+
+    .report-hero .data-project__stack {
+      justify-content: center;
+      margin: 1.5rem auto 0;
+    }
+  </style>
 </head>
 
 <body>
@@ -47,7 +65,7 @@
 
   <div class="nav__inner">
 
-    <a href="index.html" class="nav__brand">
+    <a href="../index.html" class="nav__brand">
       <span class="nav__brand-mark">ND</span>
       <span class="nav__brand-status">
         <i class="fa-solid fa-circle"></i>
@@ -56,13 +74,13 @@
     </a>
 
     <nav class="nav__links">
-      <a href="index.html#about">About</a>
-      <a href="index.html#work">Work</a>
-      <a href="index.html#experience">Experience</a>
-      <a href="index.html#qualifications">Qualifications</a>
-      <a href="index.html#credentials">Credentials</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="index.html#contact" class="nav__cta">Contact</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#qualifications">Qualifications</a>
+      <a href="../index.html#credentials">Credentials</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../index.html#contact" class="nav__cta">Contact</a>
     </nav>
 
     <button
@@ -94,7 +112,7 @@
     ====================================================== -->
 
     <p class="report-back">
-      <a href="data-projects.html">
+      <a href="../data-projects.html">
         <i class="fa-solid fa-arrow-left"></i>
         Back to Data Projects
       </a>
@@ -119,6 +137,8 @@
         recommendations from this project.
       </p>
 
+      <ul class="data-project__stack" id="reportStack"></ul>
+
     </section>
 
 
@@ -135,10 +155,17 @@
           <h2>Overview</h2>
 
           <p>
-            Replace this paragraph with context: what data you started
-            with, what question you were trying to answer, and why it
-            mattered. Keep it to a short paragraph — the details go in
-            the sections below.
+            This project performs exploratory data analysis (EDA) 
+            on an e-bike sharing dataset using Microsoft SQL Server
+            (T-SQL). It covers data quality assessment, user behavior, 
+            station popularity, net flow balance, and user growth
+            trends across 15,000 trips, 25 stations, and 1,000 users.
+            The goal was to answer practical operational questions: when 
+            is demand highest, which stations are under strain, how do
+            members differ from casual riders, and where should 
+            rebalancing resources go. The analysis demonstrates advanced SQL
+            techniques including CTEs, window functions, multi-table joins, and 
+            date/time functions — all essential for real-world analytics work.
           </p>
 
         </section>
@@ -154,29 +181,52 @@
           <h2>Key Findings</h2>
 
           <div class="report-finding">
-            <h3>Finding 1 — replace with a short headline</h3>
+            <h3>Finding 1 — Peak hours follow the commute pattern</h3>
             <p>
-              Replace with the finding itself, stated plainly, followed
-              by the number or evidence that supports it. One or two
-              sentences is usually enough.
+              Ride volume concentrates in the morning (7–9 AM) and 
+              evening (4–7 PM) windows, with clear spikes during typical
+              commute times. This confirms the system is primarily serving 
+              commuter traffic, which has direct implications for bike 
+              pre-positioning and rebalancing schedules.
             </p>
           </div>
 
           <div class="report-finding">
-            <h3>Finding 2 — replace with a short headline</h3>
+            <h3>Finding 2 — Members ride more, and differently, than casual users</h3>
             <p>
-              Replace with the finding itself, stated plainly, followed
-              by the number or evidence that supports it.
+             Segmenting by membership level shows that Subscribers take 
+             longer and more frequent rides than Casual users. 
+             This difference in behavior means the two groups contribute 
+             differently to system load and should be handled separately in operational planning.
             </p>
           </div>
 
           <div class="report-finding">
-            <h3>Finding 3 — replace with a short headline</h3>
+            <h3>Finding 3 — A small number of stations handle the majority of trips</h3>
             <p>
-              Replace with the finding itself, stated plainly, followed
-              by the number or evidence that supports it.
+              The top 10 starting stations account for a disproportionately large share of all rides.
+               This concentration means operational effort can be targeted efficiently — rebalancing 
+               a handful of high-traffic stations addresses most of the system's imbalance.
             </p>
           </div>
+
+         <div class="report-finding">
+            <h3>Finding 4 — Several stations have significant net flow imbalance</h3>
+            <p>
+              Comparing arrivals vs. departures per station revealed stations with large positive
+               net flow (bike surplus) and large negative net flow (bike shortage). These imbalances
+                directly point to where rebalancing is needed.
+            </p>
+          </div>
+
+          <div class="report-finding">
+            <h3>Finding 5 — User signups show seasonal growth patterns</h3>
+            <p>
+              Month-over-month growth in new user signups (calculated with the LAG() window function) 
+              shows seasonal variation rather than steady linear growth, which informs membership campaign timing.
+            </p>
+          </div>
+
 
         </section>
 
@@ -190,9 +240,15 @@
           <h2>Methodology</h2>
 
           <ul class="report-list">
-            <li>Replace with step 1 — e.g. how the data was cleaned or profiled</li>
-            <li>Replace with step 2 — e.g. what queries or transformations were used</li>
-            <li>Replace with step 3 — e.g. how results were validated</li>
+            <li>Data sources: Three tables in the DataAnalysis database — rides (trip-level data), stations (station reference), and users (membership and signup data).</li>
+            <li>Data quality checks: Counted NULLs in key ride columns and identified "false starts" — trips under 2 minutes or with zero distance — to exclude them from behavior analysis</li>
+            <li>Summary statistics: Computed min, max, and average trip distance and duration using DATEDIFF() for duration and CAST for numeric precision.</li>
+             <li>User behavior analysis: Joined rides to users and grouped by membership_level to compare ride volume, average distance, and average duration.</li>
+            <li>Peak hour analysis: Grouped rides by DATEPART(HOUR, start_time) to identify demand windows.</li>
+             <li>Station popularity: Joined rides to stations and ranked with TOP 10 ... ORDER BY.</li>
+            <li>Net flow analysis: Used two CTEs (departures and arrivals) joined to the stations table to compute arrivals − departures per station.</li>
+             <li>User growth trends: Used DATETRUNC(MONTH, created_at) with the LAG() window function and NULLIF() (to prevent divide-by-zero) for month-over-month growth.</li>
+            <li>Validation: Cross-checked row counts across tables and confirmed joins produced no orphaned records.</li>
           </ul>
 
         </section>
@@ -208,8 +264,11 @@
 
           <h2>Visualization</h2>
 
-          <div class="report-image">
-            <img src="assets/gallery/sql.webp" alt="Report visualization placeholder">
+          <div class="report-image" id="reportVizImage">
+            <div class="report-image__placeholder">
+              <i class="fa-solid fa-chart-column"></i>
+              <span>Visualization coming soon</span>
+            </div>
           </div>
 
           <!-- Populated automatically from this project's links in
@@ -263,9 +322,9 @@
 </footer>
 
 
-<script src="js/script.js?v=20"></script>
-<script src="js/projects-data.js"></script>
-<script src="js/report-populate.js"></script>
+<script src="../js/script.js?v=20"></script>
+<script src="../js/projects-data.js"></script>
+<script src="../js/report-populate.js"></script>
 
 </body>
 </html>

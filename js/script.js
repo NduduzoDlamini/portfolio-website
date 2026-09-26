@@ -1,6 +1,48 @@
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Dark/light mode toggle
+// Preference order: saved choice > OS preference > dark (site default).
+// Applied as data-theme="light" on <html>; the dark palette is the
+// unmarked default in style.css, so no attribute means dark.
+(function initThemeToggle() {
+  const STORAGE_KEY = 'theme';
+  const root = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      root.setAttribute('data-theme', 'light');
+    } else {
+      root.removeAttribute('data-theme');
+    }
+    if (toggle) {
+      toggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      toggle.setAttribute('aria-pressed', theme === 'light');
+    }
+  }
+
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  applyTheme(saved || (prefersLight ? 'light' : 'dark'));
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      localStorage.setItem(STORAGE_KEY, next);
+      applyTheme(next);
+    });
+  }
+
+  // Follow the OS setting live, but only until the person picks a
+  // theme themselves — once they do, their choice always wins.
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+      applyTheme(e.matches ? 'light' : 'dark');
+    }
+  });
+})();
+
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.querySelector('.nav__links');

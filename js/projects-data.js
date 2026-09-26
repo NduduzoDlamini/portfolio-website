@@ -23,6 +23,7 @@ const dataProjects = [
       "Statistical Cross-Tabulation",
       "Metrics Calibration"
     ],
+	 reportUrl: "reports/report-bike-sales.html",
     links: [
       {
         label: "View Dataset",
@@ -33,7 +34,7 @@ const dataProjects = [
       {
         label: "View Dashboard",
         icon: "fa-solid fa-chart-line",
-        href: "https://1drv.ms/x/c/74aa4d2faad8bead/IQAX40vjZuWdQb5-YXZSvCewAWNHDac2q6_FHxBY3zbH28k?e=N1dnjA",
+        href: "https://1drv.ms/x/c/74aa4d2faad8bead/IQAX40vjZuWdQb5-YXZSvCewAWNHDac2q6_FHxBY3zbH28k?e=Qg2qxb",
         external: true
       }
     ]
@@ -54,7 +55,7 @@ const dataProjects = [
       "Window Functions (LAG)",
       "Data Profiling & Aggregations"
     ],
-    reportUrl: "report-business-intelligence.html",
+    reportUrl: "reports/report-business-intelligence.html",
     links: [
       {
         label: "View Dataset",
@@ -65,7 +66,7 @@ const dataProjects = [
       {
         label: "View code",
         icon: "fa-solid fa-code",
-        href: "https://github.com/NduduzoDlamini/DataAnalysis-PortfolioProject/blob/main/SQL_EBIKE.sql",
+        href: "https://github.com/NduduzoDlamini/DataAnalysis-PortfolioProject/blob/main/SQL_EBIKE/SQL_EBIKE.sql",
         external: true
       }
     ]
