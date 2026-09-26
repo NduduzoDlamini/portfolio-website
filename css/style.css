@@ -56,6 +56,12 @@
 :root[data-theme="light"] .gallery-filter button.active {
   background: #0D9488;
 }
+:root[data-theme="light"] .nav__cta {
+  color: #FFFFFF !important;
+}
+:root[data-theme="light"] .btn--primary {
+  color: #FFFFFF;
+}
 :root[data-theme="light"] .portrait-tag {
   background: #FFFFFF;
   border-color: #CCFBF1;
