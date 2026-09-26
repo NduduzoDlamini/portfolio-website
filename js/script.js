@@ -9,8 +9,23 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const STORAGE_KEY = 'theme';
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
-  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
   const THEME_COLORS = { dark: '#0B1220', light: '#F5F7FB' }; // matches --bg in style.css
+
+  // iOS Safari is unreliable about repainting the status bar when you
+  // just update an existing <meta name="theme-color"> tag's content
+  // in place — it often waits until the next navigation/reload.
+  // Removing the tag and inserting a fresh one forces it to notice
+  // the change right away. Safe on other browsers too.
+  function setThemeColor(color) {
+    const old = document.querySelector('meta[name="theme-color"]');
+    if (old) {
+      old.remove();
+    }
+    const meta = document.createElement('meta');
+    meta.setAttribute('name', 'theme-color');
+    meta.setAttribute('content', color);
+    document.head.appendChild(meta);
+  }
 
   function applyTheme(theme) {
     if (theme === 'light') {
@@ -22,9 +37,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
       toggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
       toggle.setAttribute('aria-pressed', theme === 'light');
     }
-    if (themeColorMeta) {
-      themeColorMeta.setAttribute('content', theme === 'light' ? THEME_COLORS.light : THEME_COLORS.dark);
-    }
+    setThemeColor(theme === 'light' ? THEME_COLORS.light : THEME_COLORS.dark);
   }
 
   const saved = localStorage.getItem(STORAGE_KEY);
