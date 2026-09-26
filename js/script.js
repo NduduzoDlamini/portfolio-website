@@ -9,6 +9,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const STORAGE_KEY = 'theme';
   const root = document.documentElement;
   const toggle = document.getElementById('themeToggle');
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  const THEME_COLORS = { dark: '#0B1220', light: '#F5F7FB' }; // matches --bg in style.css
 
   function applyTheme(theme) {
     if (theme === 'light') {
@@ -19,6 +21,9 @@ document.getElementById('year').textContent = new Date().getFullYear();
     if (toggle) {
       toggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
       toggle.setAttribute('aria-pressed', theme === 'light');
+    }
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'light' ? THEME_COLORS.light : THEME_COLORS.dark);
     }
   }
 
