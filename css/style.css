@@ -56,6 +56,9 @@
 :root[data-theme="light"] .gallery-filter button.active {
   background: #0D9488;
 }
+:root[data-theme="light"] .gallery-filter button.active {
+  color: #FFFFFF;
+}
 :root[data-theme="light"] .nav__cta {
   color: #FFFFFF !important;
 }
@@ -1446,7 +1449,7 @@ a:focus-visible, button:focus-visible {
 .lightbox-thumbs button.active,
 .lightbox-thumbs button:hover {
   opacity: 1;
-  border-color: #37d6c8;
+  border-color: var(--accent);
 }
 
 /* ================================
@@ -1459,7 +1462,7 @@ a:focus-visible, button:focus-visible {
 
     inset:0;
 
-    background:rgba(0,0,0,.97);
+    background:var(--bg);
 
     display:none;
 
@@ -1575,18 +1578,20 @@ a:focus-visible, button:focus-visible {
 .lightbox-info{
 
     margin-top:25px;
+
+    color: var(--text);
 }
 
 .lightbox-info h2{
 
-    color:white;
+    color:var(--text);
 
     margin-bottom:10px;
 }
 
 .lightbox-info p{
 
-    color:#cfd6e6;
+    color:var(--muted);
 }
 
 /* CLOSE */
@@ -1601,7 +1606,7 @@ a:focus-visible, button:focus-visible {
 
     font-size:40px;
 
-    color:white;
+    color:var(--text);
 
     cursor:pointer;
 
@@ -1632,7 +1637,7 @@ a:focus-visible, button:focus-visible {
 
     font-size:45px;
 
-    color:white;
+    color:var(--text);
 
     cursor:pointer;
 
@@ -1790,8 +1795,8 @@ font-size:2.2rem;
 .lightbox-project-link {
 
   margin-top: 0.5rem;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: var(--surface-2);
+  border-color: var(--border);
   color: var(--text);
 
 }
@@ -2287,6 +2292,7 @@ font-size:2.2rem;
 
 .report-nav a.is-active {
   color: var(--accent);
+  font-weight: 600;
 }
 
 .report-nav a:last-child {
