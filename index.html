@@ -21,7 +21,7 @@
   })();
 </script>
 <link rel="stylesheet" href="css/style.css?v=21" />
-<link rel="stylesheet" href="css/chatbot-widget.css">
+<link rel="stylesheet" href="css/chatbot-widget.css?v=3">
 </head>
 <body>
 
@@ -59,7 +59,7 @@
 <main>
 
   <!-- ============ HERO ============ -->
-  <section class="hero">
+  <section class="hero" id="about">
     <div class="hero__inner">
       <div class="hero__text">
         <p class="eyebrow"><span class="hop">hop 01</span> // about</p>
@@ -232,10 +232,12 @@
         <span class="timeline__year">Self-Directed</span>
         <div class="timeline__body">
           <h3>Data Analytics — Independent Projects</h3>
-          <p>Personal projects using SQL and Tableau</p>
+          <p>Personal projects using SQL, Excel and Tableau</p>
           <ul class="timeline__responsibilities">
+            <li>Built an Excel dashboard for a pizza sales dataset (48,620 order lines, 21,350 orders, about $817,900 in revenue) using PivotTables and KPI measures, covering daily and hourly order trends, category and size share of sales, and best and worst sellers.</li>
+            <li>Cleaned and analyzed 1,000 bike-buyer records in Excel, adding age brackets and building PivotTables and a dashboard that show how income, age, gender and commute distance relate to purchases.</li>
+            <li>Ran exploratory analysis of an e-bike sharing dataset (15,000 trips, 25 stations, 1,000 users) in SQL Server using T-SQL, CTEs and window functions, covering peak hours, member vs. casual behavior, station popularity, net flow imbalance and user growth.</li>
             <li>Built an interactive Tableau dashboard analyzing COVID-19 trends from public datasets.</li>
-            <li>Used SQL to explore and query a public bike-share usage dataset.</li>
           </ul>
         </div>
       </li>
@@ -486,7 +488,7 @@
 
 <script src="js/script.js?v=20"></script>
 <script src="js/celebrate.js"></script>
-<script src="js/chatbot-widget.js"></script>
+<script src="js/chatbot-widget.js?v=3"></script>
 <script>
   (function () {
     var pdfModal = document.getElementById("pdfModal");

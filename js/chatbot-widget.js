@@ -110,6 +110,19 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
   });
   closeBtn.addEventListener("click", closeWindow);
 
+  // When a link in a bot message points to a section of the page the visitor
+  // is already on (e.g. the Contact section on the home page), close the chat
+  // so the page can scroll into view — on mobile the full-screen chat would
+  // otherwise keep covering it.
+  messagesEl.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (!a || !a.hash) return;
+    const norm = (p) => p.replace(/index\.html$/, "").replace(/\/+$/, "") || "/";
+    if (a.origin === location.origin && norm(a.pathname) === norm(location.pathname)) {
+      closeWindow();
+    }
+  });
+
   const teaserCloseBtn = teaser.querySelector("#chatbot-teaser-close");
   const teaserBubble = teaser.querySelector(".chatbot-teaser-bubble");
   function hideTeaser() {
@@ -120,6 +133,59 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     openWindow();
     hideTeaser();
   });
+
+  // Calls the Worker, retrying automatically on the kinds of failures that
+  // are usually temporary (rate limits, overloaded upstream model, 5xx,
+  // dropped connection). The loading bubbles stay visible during retries,
+  // so the visitor only sees an error if every attempt fails.
+  const MAX_RETRIES = 2;
+  const RETRY_DELAYS_MS = [1000, 2500];
+
+  async function requestReply(text) {
+    let lastFailure = null;
+
+    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text, history }),
+        });
+
+        let data = null;
+        try {
+          data = await res.json();
+        } catch (_) {
+          // Non-JSON response (e.g. an HTML error page) — treat as failure.
+        }
+
+        if (res.ok && data && !data.error && data.reply) {
+          return { ok: true, data };
+        }
+
+        lastFailure = { status: res.status, body: data };
+        console.warn(
+          `[chatbot] attempt ${attempt + 1} failed`,
+          res.status,
+          data
+        );
+
+        // 4xx (other than 429) means the request itself is bad — retrying
+        // won't help.
+        if (res.status >= 400 && res.status < 500 && res.status !== 429) break;
+      } catch (err) {
+        lastFailure = { error: err };
+        console.warn(`[chatbot] attempt ${attempt + 1} network error`, err);
+      }
+
+      if (attempt < MAX_RETRIES) {
+        await new Promise((r) => setTimeout(r, RETRY_DELAYS_MS[attempt]));
+      }
+    }
+
+    console.error("[chatbot] all attempts failed", lastFailure);
+    return { ok: false, failure: lastFailure };
+  }
 
   async function sendMessage() {
     const text = inputEl.value.trim();
@@ -140,29 +206,21 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     messagesEl.scrollTop = messagesEl.scrollHeight;
 
     try {
-      const res = await fetch(WORKER_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, history }),
-      });
-
-      const data = await res.json();
+      const result = await requestReply(text);
       typingEl.remove();
 
-      if (!res.ok || data.error) {
+      if (!result.ok) {
         addMessage(
           "Sorry, something went wrong. Please try again in a moment.",
           "bot"
         );
       } else {
+        const data = result.data;
         addMessage(data.reply, "bot", data.links);
 
         history.push({ role: "user", text });
         history.push({ role: "model", text: data.reply });
       }
-    } catch (err) {
-      typingEl.remove();
-      addMessage("Network error — please check your connection.", "bot");
     } finally {
       sending = false;
       sendBtn.disabled = false;
