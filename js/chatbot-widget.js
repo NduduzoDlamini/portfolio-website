@@ -130,8 +130,14 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
     inputEl.value = "";
     addMessage(text, "user");
 
-    const typingEl = addMessage("Thinking...", "bot");
+    // Animated loading bubbles instead of "Thinking..." text.
+    const typingEl = addMessage("", "bot");
     typingEl.classList.add("typing");
+    typingEl.setAttribute("role", "status");
+    typingEl.setAttribute("aria-label", "Assistant is typing");
+    typingEl.innerHTML =
+      '<span class="chatbot-dot"></span><span class="chatbot-dot"></span><span class="chatbot-dot"></span>';
+    messagesEl.scrollTop = messagesEl.scrollHeight;
 
     try {
       const res = await fetch(WORKER_URL, {
