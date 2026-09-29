@@ -41,7 +41,7 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
   const closeBtn = win.querySelector("#chatbot-close");
 
   // In-memory conversation history for this page session.
-  // Format matches what the Worker expects: { role, text }
+  // Format matches what the Worker expects: { role: "user" | "assistant", text }
   let history = [];
   let sending = false;
 
@@ -219,7 +219,7 @@ const WORKER_URL = "https://portfolio-chat.nduduzodlamini5.workers.dev";
         addMessage(data.reply, "bot", data.links);
 
         history.push({ role: "user", text });
-        history.push({ role: "model", text: data.reply });
+        history.push({ role: "assistant", text: data.reply });
       }
     } finally {
       sending = false;
