@@ -1484,25 +1484,59 @@ a:focus-visible, button:focus-visible {
 
 /* ================================
    CERTIFICATE PDF MODAL
+   - Backdrop follows the site theme (dark by default, light when
+     data-theme="light"). The PDF viewer inside the iframe is drawn by
+     the browser and keeps its own look; only the area around it themes.
+   - The close button sits in its own strip ABOVE the frame so it never
+     covers the PDF viewer's toolbar icons (download/print/etc.).
 ================================ */
 
 .pdf-modal {
+  --pdf-strip-top: 64px;    /* room for the close button above the PDF */
+  --pdf-strip-bottom: 44px; /* room for the "Open PDF directly" link */
+
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.97);
+  box-sizing: border-box;
+  background: rgba(11, 18, 32, 0.97);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  padding: 20px;
+  padding: var(--pdf-strip-top) 20px var(--pdf-strip-bottom);
 }
 
-.pdf-modal .lightbox-close {
-  z-index: 10;
+:root[data-theme="light"] .pdf-modal {
+  background: rgba(245, 247, 251, 0.97);
 }
 
 .pdf-modal.active {
   display: flex;
+}
+
+/* Close button: round chip with its own background + border so the X
+   is clearly visible on either backdrop */
+.pdf-modal .lightbox-close {
+  z-index: 10;
+  top: 10px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+}
+
+.pdf-modal .lightbox-close:hover,
+.pdf-modal .lightbox-close:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .pdf-modal__frame {
@@ -1516,7 +1550,7 @@ a:focus-visible, button:focus-visible {
 
 .pdf-modal__fallback {
   position: absolute;
-  bottom: 14px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -1527,15 +1561,21 @@ a:focus-visible, button:focus-visible {
   text-underline-offset: 3px;
 }
 
+.pdf-modal__fallback:hover {
+  color: var(--accent);
+}
+
 @media (max-width: 650px) {
   .pdf-modal {
-    padding: 10px;
-    padding-top: calc(env(safe-area-inset-top, 0px) + 54px);
+    --pdf-strip-top: calc(env(safe-area-inset-top, 0px) + 62px);
+    --pdf-strip-bottom: calc(env(safe-area-inset-bottom, 0px) + 40px);
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .pdf-modal .lightbox-close {
-    top: calc(env(safe-area-inset-top, 0px) + 12px);
-    right: 15px;
+    top: calc(env(safe-area-inset-top, 0px) + 10px);
+    right: 12px;
   }
 }
 
