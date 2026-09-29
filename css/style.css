@@ -1492,7 +1492,7 @@ a:focus-visible, button:focus-visible {
 ================================ */
 
 .pdf-modal {
-  --pdf-strip-top: 64px;    /* room for the close button above the PDF */
+  --pdf-strip-top: 40px;    /* room for the close button above the PDF */
   --pdf-strip-bottom: 44px; /* room for the "Open PDF directly" link */
 
   position: fixed;
@@ -1518,14 +1518,14 @@ a:focus-visible, button:focus-visible {
    is clearly visible on either backdrop */
 .pdf-modal .lightbox-close {
   z-index: 10;
-  top: 10px;
+  top: 4px;
   right: 20px;
-  width: 44px;
-  height: 44px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 22px;
   line-height: 1;
   color: var(--text);
   background: var(--surface);
