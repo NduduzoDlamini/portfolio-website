@@ -1525,13 +1525,29 @@ a:focus-visible, button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  line-height: 1;
+  padding: 0;
+  font-size: 0;      /* hide the text glyph; the X is drawn below so it is exactly centred */
+  line-height: 0;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 50%;
 }
+
+.pdf-modal .lightbox-close::before,
+.pdf-modal .lightbox-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+.pdf-modal .lightbox-close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.pdf-modal .lightbox-close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 
 .pdf-modal .lightbox-close:hover,
 .pdf-modal .lightbox-close:focus-visible {
