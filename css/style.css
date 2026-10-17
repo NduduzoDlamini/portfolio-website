@@ -428,6 +428,10 @@ main > section:last-child { border-bottom: none; }
 /* ============================================================
    GALLERY
    ============================================================ */
+.gallery-preview__more {
+  margin-top: 1.75rem;
+}
+
 .gallery-preview-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
