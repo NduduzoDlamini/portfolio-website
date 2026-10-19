@@ -759,7 +759,7 @@ const galleryItems = [
     images: [
       "assets/gallery/cab.webp",
       "assets/gallery/cab1.webp",
-      "assets/gallery/cab.webp",
+      "assets/gallery/cab2.webp",
       "assets/gallery/cab3.webp"
     ],
 
