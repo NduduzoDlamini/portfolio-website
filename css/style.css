@@ -411,6 +411,7 @@ main > section:last-child { border-bottom: none; }
   color: var(--on-accent);
 }
 .work-card__visual--data { background: linear-gradient(135deg, var(--accent), #2FBFA8); }
+.work-card__visual--ds   { background: linear-gradient(135deg, #B79CFF, #7C5CD6); }
 .work-card__visual--net  { background: linear-gradient(135deg, #7FB3FF, #4C7FD9); }
 .work-card__visual--dev  { background: linear-gradient(135deg, var(--accent-2), #C98A2A); }
 .work-card__body { padding: 1.5rem; }
@@ -434,9 +435,17 @@ main > section:last-child { border-bottom: none; }
 
 .gallery-preview-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:24px;
     margin-top:2rem;
+}
+
+@media (max-width:900px){
+  .gallery-preview-grid{ grid-template-columns:repeat(2,1fr); }
+}
+
+@media (max-width:560px){
+  .gallery-preview-grid{ grid-template-columns:1fr; }
 }
 
 .preview-card{
@@ -1364,7 +1373,7 @@ a:focus-visible, button:focus-visible {
 #lightbox:-webkit-full-screen {
   width: 100vw;
   height: 100vh;
-  background: #000;
+  background: var(--bg); /* follows light/dark theme */
   padding: 0;
 }
 
@@ -1411,6 +1420,23 @@ a:focus-visible, button:focus-visible {
 #lightbox:fullscreen .lightbox-close,
 #lightbox:-webkit-full-screen .lightbox-close {
   z-index: 10000;
+}
+
+/* Browser-drawn backdrop behind native fullscreen. It is black by default
+   and doesn't reliably inherit CSS variables, so use explicit colours that
+   match each theme. Separate rules per prefix: an unknown selector in a
+   grouped rule would invalidate the whole rule. */
+#lightbox::backdrop {
+  background: #0B1220;
+}
+:root[data-theme="light"] #lightbox::backdrop {
+  background: #F5F7FB;
+}
+#lightbox::-webkit-backdrop {
+  background: #0B1220;
+}
+:root[data-theme="light"] #lightbox::-webkit-backdrop {
+  background: #F5F7FB;
 }
 
 /* ================================

@@ -16,6 +16,7 @@
    Categories:
    networking
    data
+   data-science
    ai
    field
    events
@@ -127,14 +128,7 @@ const galleryItems = [
 
 
   /* =======================================================
-     DATA ANALYTICS
-     =======================================================
-     
-     IMPORTANT:
-     Use only public datasets for portfolio projects.
-     
-     Replace the example Kaggle information with the
-     actual dataset used for each project.
+     DATA ANALYTICS  
   ======================================================= */
 
   {
@@ -174,6 +168,150 @@ const galleryItems = [
   
 
   /* =======================================================
+     DATA SCIENCE  (template - uncomment and fill in)
+  ======================================================= */
+
+ {
+    title: "Eswatini Health Trends Analytics Platform",
+
+    category: "data-science",
+
+    project: "Natural Language to BI Dashboard Engine",
+
+    description:
+      "Developed a production-grade, interactive data science application that translates natural language questions into safe, dynamically executed SQL queries. The system orchestrates local Large Language Models (LLMs) to instantly generate statistical charts, calculate key performance indicator (KPI) variance badges, and compile automated text summaries directly from localized public health datasets. The platform features robust data pipelining, administrative training features, and security-validated read-only query execution guards.", 
+
+     type: "data",
+
+    technologies: [
+      "Python",
+      "Streamlit",
+      "SQL Server / SQLite ",
+      "Ollama (Qwen LLM)",
+      "Pandas"
+    
+    ],
+
+    date: "2026",
+
+    source: "World Health Organization (WHO) Global Health Observatory Dataset",
+
+    dataSourceUrl:
+      "https://www.kaggle.com/",
+
+    image: "assets/gallery/dash.webp",
+
+    /*images: [
+      "assets/gallery/bi_dash.webp",
+      "assets/gallery/bi1.webp",
+      "assets/gallery/bi2.webp",
+      "assets/gallery/b3.webp",
+      "assets/gallery/bi4.webp"
+      
+      
+    ],*/
+
+    alt: "Local Health Dataset (DataAnalysis Database)",
+
+    projectUrl:
+      "https://github.com/NduduzoDlamini/AI_projects/tree/main/health_chat_app_StreamLit"
+  },
+  
+  
+  {
+    title: "Local AI Health Data Analyst",
+
+    category: "data-science",
+
+    project: "Vanna AI Data Analyst Chatbot",
+
+    description:
+      "An intelligent text-to-SQL data analytics platform deployed locally to securely query and analyze health data. The project showcases how to run an offline Large Language Model paired with a vector database to automatically generate SQL queries, retrieve data from a relational database, and generate dynamic data visualizations (like malaria case trends) without relying on cloud APIs.",
+
+    type: "data",
+
+    technologies: [
+      "Python",
+      "SQL Server",
+      "Ollama",
+      "Qwen LLM",
+      "ChromaDB",
+      "Plotly"
+    ],
+
+    date: "2026",
+
+    source: "Local Health Dataset (DataAnalysis Database)",
+
+    dataSourceUrl:
+      "https://www.kaggle.com/",
+
+    image: "assets/gallery/vanna.webp",
+
+    images: [
+      "assets/gallery/vanna.webp",
+      "assets/gallery/vanna1.webp",
+      "assets/gallery/vanna2.webp",
+      "assets/gallery/vanna3.webp",
+       "assets/gallery/olla.webp",
+      "assets/gallery/vanna4.webp",
+      "assets/gallery/vanna5.webp"
+      
+    ],
+
+    alt: "Local Health Dataset (DataAnalysis Database)",
+
+    projectUrl:
+      "https://github.com/NduduzoDlamini/AI_projects/tree/main/VannaWorkspace"
+  },
+  
+  {
+    title: "GenAI-Powered Business Intelligence Architecture",
+
+    category: "data-science",
+
+    project: "Natural Language to SQL BI Interface",
+
+    description:
+     "Designed and built a generative AI integration framework within Power BI using custom Power Query M code. The system acts as an intelligent translator that captures natural language user inputs via parameters (e.g., \"Show me malaria trends\"), builds context-aware prompts with strict database schemas, and safely triggers dynamic native SQL Server queries. The architecture automates text-to-SQL logic and generates real-time analytical data visualizations directly inside a desktop BI dashboard.",
+    type: "data",
+
+    technologies: [
+      "Power BI",
+      "Power Query (M Language)",
+      "SQL Server",
+      "Qwen LLM",
+      "GenAI Prompt Engineering",
+      "Data Modeling"
+    ],
+
+    date: "2026",
+
+    source: "Local SQL Server Instance (DataAnalysis Database / health_indicators table)",
+
+    dataSourceUrl:
+      "https://www.kaggle.com/",
+
+    image: "assets/gallery/bi_dash.webp",
+
+    images: [
+      "assets/gallery/bi_dash.webp",
+      "assets/gallery/bi1.webp",
+      "assets/gallery/bi2.webp",
+      "assets/gallery/b3.webp",
+      "assets/gallery/bi4.webp"
+      
+      
+    ],
+
+    alt: "Local Health Dataset (DataAnalysis Database)",
+
+    projectUrl:
+      "https://github.com/NduduzoDlamini/AI_projects/tree/main/Power%20BI%20%2B%20Local%20AI%20%E2%80%94%20Natural%20Language%20to%20SQL%20Data%20Pipeline"
+  },
+  
+
+  /* =======================================================
      AI
      ======================================================= */
 
@@ -199,10 +337,19 @@ const galleryItems = [
     date: "2026",
 
     source: "Personal project",
+    
+    image: "assets/gallery/claude.webp",
 
-    image: "assets/gallery/ai.webp",
+    images: [
+      "assets/gallery/claude.webp",
+      "assets/gallery/claude1.webp",
+      "assets/gallery/db.webp",
+      "assets/gallery/user.webp",
+      "assets/gallery/mcp.webp"
+      
+    ],
 
-    video: "assets/gallery/mcp-demo.mp4",
+   // video: "assets/gallery/mcp-demo.mp4",
 
     alt: "AI project",
 
@@ -210,6 +357,46 @@ const galleryItems = [
       "index.html#work"
   },
 
+  {
+    title: "Local Large Language Model Deployment",
+
+    category: "ai",
+
+    project: "Offline Generative AI Environment Setup",
+
+    description:
+      "Configured and deployed a private, localized AI ecosystem on a personal workstation. The setup utilizes Ollama to serve highly optimized open-source weights (Qwen-2.5-7B) directly via the command line, paired with an AnythingLLM deployment. The configuration establishes a fully functional, offline knowledge base and AI playground, providing server endpoints to securely power local applications without data leakage or cloud subscription dependencies.",
+
+    type: "technical",
+
+    technologies: [
+      "Ollama",
+      "AnythingLLM",
+      "SQwen-2.5",
+      "CLI Environment Configuration"
+    ],
+
+    date: "2026",
+
+    source: "Personal project",
+    
+    image: "assets/gallery/ollama1.webp",
+
+    images: [
+      "assets/gallery/ollama1.webp",
+      "assets/gallery/ollama2.webp",
+      "assets/gallery/ollama.webp"
+      
+      
+    ],
+
+   // video: "assets/gallery/mcp-demo.mp4",
+
+    alt: "AI project",
+
+    projectUrl:
+      "index.html#work"
+  },
 
   /* =======================================================
      DEVELOPMENT
@@ -230,7 +417,8 @@ const galleryItems = [
     technologies: [
       "HTML",
       "CSS",
-      "JavaScript"
+      "JavaScript",
+      "Grok API"
     ],
 
     date: "2026",
@@ -286,6 +474,43 @@ const galleryItems = [
     projectUrl:
       "https://github.com/NduduzoDlamini/Automated_After-Hours_Workstation_Shutdown_System"
   },
+
+  {
+    title: "AI INTEGRATION",
+
+    category: "development",
+
+    project: "Portfolio AI Chatbot",
+
+    description:
+      "An interactive conversational chatbot integrated into the portfolio website. The project demonstrates full-stack architecture, secure serverless API handling, and AI integration. It features a custom user interface that allows visitors to ask real-time questions about professional qualifications, retrieving contextual answers securely via serverless infrastructure.",
+    
+      type: "technical",
+
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "xAI API (Grok)",
+      "Cloudflare Workers",
+      "Supabase"
+      
+    ],
+
+    date: "2026",
+
+    source: "Personal project",
+
+    image: "assets/gallery/chat.webp",
+
+    //video: "assets/gallery/hmis.mp4",
+
+    alt: "Personal portfolio website",
+
+    projectUrl:
+      "https://github.com/NduduzoDlamini/portfolio-website"
+  },
+
 
   
    /* =======================================================
@@ -1153,6 +1378,9 @@ function formatCategory(category) {
     data:
       "DATA ANALYTICS",
 
+    "data-science":
+      "DATA SCIENCE",
+
     ai:
       "AI",
 
@@ -1192,6 +1420,9 @@ function groupLabel(category) {
 
     data:
       "Data Analytics",
+
+    "data-science":
+      "Data Science",
 
     ai:
       "AI",
@@ -1233,6 +1464,7 @@ function renderGallery(category = "all") {
   const categoryOrder = [
     "networking",
     "data",
+    "data-science",
     "ai",
     "development",
     "field",
@@ -1827,7 +2059,7 @@ function showLightboxItem(index) {
   ------------------------------------------------------- */
 
   if (
-    (item.category === "data" || item.category === "qualifications" || item.category === "development") &&
+    (item.category === "data" || item.category === "data-science" || item.category === "qualifications" || item.category === "development") &&
     item.projectUrl
   ) {
 
@@ -1855,7 +2087,7 @@ function showLightboxItem(index) {
 
       if (item.category === "qualifications") {
         linkText = "View Qualifications";
-      } else if (item.category === "development") {
+      } else if (item.category === "development","data science") {
         linkText = "View on GitHub";
       }
 
@@ -1864,7 +2096,7 @@ function showLightboxItem(index) {
 
       if (lightboxProjectLinkIcon) {
         lightboxProjectLinkIcon.className =
-          item.category === "development"
+          item.category === "development","data science"
             ? "fa-brands fa-github"
             : "fa-solid fa-arrow-right";
       }
@@ -2208,6 +2440,7 @@ const validCategories = [
   "all",
   "networking",
   "data",
+  "data-science",
   "ai",
   "development",
   "field",
